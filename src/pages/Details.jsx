@@ -1,8 +1,12 @@
 import React from 'react';
+import Header from '../components/Header';
 
 function Details() {
   return(
-    <div>Details</div>
+    <main>
+      <Header />
+      <p>Details</p>
+    </main>
   );
 }
 

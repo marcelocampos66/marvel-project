@@ -1,8 +1,12 @@
 import React from 'react';
+import Header from '../components/Header';
 
 function HeroesList() {
   return (
-    <div>HeroesList</div>
+    <main>
+      <Header />
+      <p>Heroes List</p>
+    </main>
   );
 }
 
