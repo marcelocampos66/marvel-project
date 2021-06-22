@@ -1,15 +1,16 @@
 import React from 'react';
-import Logo from '../images/Logo.png';
-import Lupa from '../images/Lupa.png';
-import Menu from '../images/Menu.png';
+import marvelLogo from '../images/marvel-logo.png';
+import menuIcon from '../images/menu.png';
+import lupa from '../images/lupa-white.png';
+import * as S from '../CSS/S.Header';
 
 function Header() {
   return (
-    <div>
-      <img src={Menu} alt="Ícone de Menu" />
-      <img src={Logo} alt="Logo da Marvel" />
-      <img src={Lupa} alt="Ícone de Lupa" />
-    </div>
+    <S.Header>
+      <S.Img src={ menuIcon } alt="Ícone de Menu" />
+      <S.Img src={ marvelLogo } alt="Logo da Marvel" />
+      <S.Img src={ lupa } alt="Ícone de Lupa" />
+    </S.Header>
   );
 }
 
