@@ -3,7 +3,8 @@ import Header from '../components/Header.jsx';
 import { getCharactersById } from '../services/api';
 
 function Home() {
-  getCharactersById(498);
+  const result = getCharactersById(498);
+  console.log(result);
   return (
     <main>
       <Header />
