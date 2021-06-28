@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // const md5 = require('crypto-js/md5');
 
 export const getCharactersById = async (id) => {
@@ -10,3 +11,6 @@ export const getCharactersById = async (id) => {
 
   return result;
 };
+=======
+// fetchs
+>>>>>>> 92acba403da79652c63e1b71d2a5ca6a0584b8d6
