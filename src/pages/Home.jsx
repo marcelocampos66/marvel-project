@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from '../components/Header.jsx';
-import { getCharactersById } from '../services/api';
+import ListCharacters from '../components/ListCharacters';
+import Search from '../components/Search';
+import AppContext from '../context/AppContext';
+// import * as S from '../CSS/S.Home';
 
 function Home() {
-  getCharactersById(498);
+  const { showSearch } = useContext(AppContext);
+
   return (
     <main>
       <Header />
-      <p>Home</p>
+      {
+        showSearch && <Search />
+      }
+      <ListCharacters />
     </main>
   );
 }

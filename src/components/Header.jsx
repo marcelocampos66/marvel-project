@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import AppContext from '../context/AppContext';
 import marvelLogo from '../images/marvel-logo.png';
 import menuIcon from '../images/menu.png';
 import lupa from '../images/lupa-white.png';
 import * as S from '../CSS/S.Header';
 
 function Header() {
+  const { showSearch, setShowSearch } = useContext(AppContext);
+
   return (
     <S.Header>
       <S.DivButton>
@@ -20,10 +23,8 @@ function Header() {
           />
         </Link>
       </S.DivButton>
-      <S.DivButton>
-        <Link to='/search'>
-          <S.Img src={ lupa } alt="Ícone de Lupa" />
-        </Link>
+      <S.DivButton onClick={ () => setShowSearch(!showSearch) } > 
+        <S.Img src={ lupa } alt="Ícone de Lupa" />
       </S.DivButton>
     </S.Header>
   );
