@@ -12,19 +12,19 @@ function Header() {
   return (
     <S.Header>
       <S.DivButton>
-        <S.Img src={ menuIcon } alt="Ícone de Menu" />
+        <S.Img src={menuIcon} alt="Ícone de Menu" />
       </S.DivButton>
       <S.DivButton>
-        <Link to='/'>
-          <S.Img 
+        <Link to="/">
+          <S.Img
             style={{ border: '1px solid white' }}
-            src={ marvelLogo }
+            src={marvelLogo}
             alt="Logo da Marvel"
           />
         </Link>
       </S.DivButton>
-      <S.DivButton onClick={ () => setShowSearch(!showSearch) } > 
-        <S.Img src={ lupa } alt="Ícone de Lupa" />
+      <S.DivButton onClick={() => setShowSearch(!showSearch)}>
+        <S.Img src={lupa} alt="Ícone de Lupa" />
       </S.DivButton>
     </S.Header>
   );

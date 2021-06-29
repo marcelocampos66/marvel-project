@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 
 function Details() {
-  return(
+  return (
     <main>
       <Header />
       <p>Details</p>

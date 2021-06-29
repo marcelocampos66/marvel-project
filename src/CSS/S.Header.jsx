@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Img = styled.img`
   height: 45px;
-`
+`;
 
 export const DivButton = styled.div`
   height: 45px;
@@ -13,7 +13,7 @@ export const DivButton = styled.div`
     border: 1px solid gray;
     cursor: pointer;
   }
-`
+`;
 
 export const Header = styled.header`
   background-color: black;
@@ -22,4 +22,4 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`
+`;

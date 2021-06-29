@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import AppContext from '../context/AppContext';
-import FilterButton from '../components/FilterButton';
-import InputText from '../components/InputText';
+import FilterButton from './FilterButton';
+import InputText from './InputText';
 
 function Search() {
   const { heroes, setHeroes } = useContext(AppContext);
@@ -13,7 +13,7 @@ function Search() {
     if (name === 'Search') {
       const lowerCaseInput = inputValue.toLowerCase();
       const result = heroes
-        .filter(({ name }) => name.toLowerCase().includes(lowerCaseInput));
+        .filter(({ name: heroName }) => heroName.toLowerCase().includes(lowerCaseInput));
       setHeroes(result);
     }
     if (name === 'All') {
@@ -29,12 +29,12 @@ function Search() {
   return (
     <section>
       <div>
-        { <InputText change={handleChange} value={ inputValue } placeholder={ placeholderText } /> }
-        { <FilterButton text="Search" click={ handleClick } /> }
+        <InputText change={handleChange} value={inputValue} placeholder={placeholderText} />
+        <FilterButton text="Search" click={handleClick} />
       </div>
       <div>
-        { <FilterButton text="All" click={ handleClick } /> }
-        { <FilterButton text="Powerfull" click={ handleClick } /> }
+        <FilterButton text="All" click={handleClick} />
+        <FilterButton text="Powerfull" click={handleClick} />
       </div>
     </section>
   );
