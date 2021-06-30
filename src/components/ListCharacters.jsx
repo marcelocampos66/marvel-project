@@ -7,35 +7,39 @@ function ListCharacters() {
 
   return (
     <S.Section>
-      {
-        heroes.map(({
-          _id: id,
-          name,
-          image: { url },
-          biography: { alignment, fullName },
-        }) => (
-          <>
-            <S.DivCard key={id}>
-              <S.Img src={url} alt={`Personagem: ${name}`} />
-              <div>
-                <S.P>
-                  Name:
-                  { name }
-                </S.P>
-                <S.P>
-                  Real Name:
-                  {fullName || name }
-                </S.P>
-                <S.P>
-                  Alignment:
-                  { alignment }
-                </S.P>
-              </div>
-            </S.DivCard>
-            <S.Hr />
-          </>
-        ))
-      }
+      <S.DivFlexStart>
+        {
+          heroes.map(({
+            _id: id,
+            name,
+            image: { url },
+            biography: { alignment, fullName },
+          }) => (
+            <S.DivPai>
+              <S.SLink to={`/details/${id}`}>
+                <S.DivCard key={id}>
+                  <S.Img src={url} alt={`Personagem: ${name}`} />
+                  <div>
+                    <S.P>
+                      Name:
+                      { name }
+                    </S.P>
+                    <S.P>
+                      Real Name:
+                      {fullName || name }
+                    </S.P>
+                    <S.P>
+                      Alignment:
+                      { alignment }
+                    </S.P>
+                  </div>
+                </S.DivCard>
+              </S.SLink>
+              <S.Hr />
+            </S.DivPai>
+          ))
+        }
+      </S.DivFlexStart>
     </S.Section>
   );
 }
