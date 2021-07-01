@@ -15,28 +15,25 @@ function ListCharacters() {
             image: { url },
             biography: { alignment, fullName },
           }) => (
-            <S.DivPai>
+            <S.DivCard>
               <S.SLink to={`/details/${id}`}>
-                <S.DivCard key={id}>
+                <S.DivContent key={id}>
                   <S.Img src={url} alt={`Personagem: ${name}`} />
-                  <div>
+                  <S.DivText>
                     <S.P>
-                      Name:
-                      { name }
+                      {`Name: ${name}`}
                     </S.P>
                     <S.P>
-                      Real Name:
-                      {fullName || name }
+                      {`Real Name: ${fullName || name}`}
                     </S.P>
                     <S.P>
-                      Alignment:
-                      { alignment }
+                      {`Alignment: ${alignment}`}
                     </S.P>
-                  </div>
-                </S.DivCard>
+                  </S.DivText>
+                </S.DivContent>
               </S.SLink>
               <S.Hr />
-            </S.DivPai>
+            </S.DivCard>
           ))
         }
       </S.DivFlexStart>

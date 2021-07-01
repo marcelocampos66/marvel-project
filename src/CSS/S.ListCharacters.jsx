@@ -6,29 +6,28 @@ export const Section = styled.main`
   justify-content: center;
 `;
 
-export const DivCard = styled.div`
-  width: 90%;
+export const DivContent = styled.div`
+  width: 100%;
   height: 20vh;
   display: flex;
   align-items: center;
-  border-radius: 5px;
-  margin: 0px, 10%, 5%, 10%;
 `;
+
 export const Hr = styled.hr`
-  width: 90%;
+  width: 100%;
 `;
 
 export const Img = styled.img`
-width: 100px;
-height: 90%;
-margin: 2%;
-
-@media(max-width: 400px) {
-  margin: 0;
   height: 90%;
-  width: 100px;
+  width: 85px;
   margin: 0 2%
-}
+
+// @media(min-width: 601px) {
+//   width: 85px;
+//   // width: auto;
+//   height: 90%;
+//   margin: 0 2%;
+// }
 `;
 
 export const P = styled.p`
@@ -40,26 +39,36 @@ export const SLink = styled(Link)`
   text-decoration: none;
 `;
 
-export const DivPai = styled.div`
-  width: 90%;
-  height: 20vh;
-  max-width: 33%;
-  justify-self: start;
+export const DivCard = styled.div`
+  max-width: 100%;
+  width: 100%;
+  height: 22vh;
 
-  @media(max-width: 400px) {
-    max-width: 100%;
+  @media(min-width: 601px) {
     width: 100%;
     height: 22vh;
+    max-width: 31%;
+    justify-self: start;
+    margin: 0 1%;
   }
 `;
 
 export const DivFlexStart = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  flex-direction: column;
+  flex-wrap: nowrap;
 
-  @media(max-width: 400px) {
-    flex-direction: column;
-    flex-wrap: nowrap;
+  @media(min-width: 601px) {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+`;
+
+export const DivText = styled.div`
+  padding: 5px;
+
+  @media(min-width: 601px) {
+    margin-left: 5%;
   }
 `;
