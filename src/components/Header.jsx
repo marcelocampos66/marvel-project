@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AppContext from '../context/AppContext';
 // import marvelLogo from '../images/marvel-logo.png';
-import SHLlogo from '../images/superheroesname.png';
+import SHLlogo from '../images/superheroesshl.png';
 import menuIcon from '../images/menu.png';
 import lupa from '../images/lupa-white.png';
 import * as S from '../CSS/S.Header';
@@ -18,7 +18,6 @@ function Header() {
       <S.DivButton>
         <Link to="/home">
           <S.Img
-            style={{ border: '1px solid white', width: '150px' }}
             src={SHLlogo}
             alt="Logo da Marvel"
           />

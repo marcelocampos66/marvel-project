@@ -14,7 +14,7 @@ function Register() {
 
   const verifyFormData = () => {
     const {
-      name, age, email, password,
+      name, age, email, password, terms,
     } = formData;
     const emailRegex = /^[^\s@]+@[^\s@]+$/;
     if (name.length < 3) {
@@ -33,6 +33,10 @@ function Register() {
       setDisableButton(true);
       return;
     }
+    if (!terms) {
+      setDisableButton(true);
+      return;
+    }
     setDisableButton(false);
   };
 
@@ -43,6 +47,7 @@ function Register() {
   const handleChange = ({ target: { name, value, checked } }) => {
     if (name === 'terms') {
       setFormData({ ...formData, [name]: checked });
+      return;
     }
     setFormData({ ...formData, [name]: value });
   };
