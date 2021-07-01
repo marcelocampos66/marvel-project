@@ -65,7 +65,7 @@ function Register() {
     </label>
   );
 
-  const temrText = 'Concordo com os termos de serviço';
+  const temrText = 'I agree with the terms';
 
   return (
     <main>
