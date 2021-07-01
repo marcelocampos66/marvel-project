@@ -10,7 +10,7 @@
 <br>
 
 <p align="center">
- <a href="#Desafio proposto">Desafio Proposto</a> •
+ <a href="Desafio proposto">Desafio Proposto</a> •
  <a href="#Decisões técnicas">Decisões técnicas</a> •
  <a href="#Controle e planejamento">Controle e planejamento</a> •
  <a href="#🚧 Features 🚧">Features</a> •
@@ -62,19 +62,39 @@
 
 <h2>Aplicação em produção</h2>
   
-<p>É possível verificar o vídeo da aplicação em produção neste "link"</p>
+<p>É possível verificar o vídeo da aplicação em produção neste "link" (Em desenvolvimento)</p>
 
-<p>Há possibilidade de rodar localmente a aplicação por meio dos seguintes passos:</p>
-  
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-  
-  
-  
-<h3>Equipe</h3>
+<p>Há possibilidade de rodar localmente a aplicação por meio dos seguintes passos: (Em desenvolvimento)</p>
+ 
 
-Jhonatan Arguello
-Marcelo Campos
+<hr>
   
+<h3 align=center>Equipe</h3>
+
+<table align=center>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/jiarguello">
+        <img width='100px' src='https://avatars.githubusercontent.com/u/72360446?v=4' Alt= Jhonatan Perfil>
+      </a>
+    </td>
+      
+    <td align="center">
+      <a href="https://github.com/marcelocampos66"> 
+        <img width='100px' src='https://avatars.githubusercontent.com/u/31359152?s=60&v=4' Alt= Marcelo Perfil>
+      </a>
+    </td>
+  </tr>
+   <tr>
+    <td>
+      <a href="https://github.com/jiarguello">
+        Jhonatan Arguello
+      </a>   
+    </td>
+      <a href="https://github.com/marcelocampos66"> 
+        Jhonatan Arguello
+      </a>
+    </td>
+  </tr>
+</table>
+</div>
