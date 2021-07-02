@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import AppContext from './AppContext';
-import { data } from '../data/mock';
+import { data, list } from '../data/mock';
 
 function Provider({ children }) {
   const [heroes, setHeroes] = useState(data);
+  const [myList, setMyList] = useState(list);
   const [showSearch, setShowSearch] = useState(false);
 
   const contextValue = {
@@ -12,6 +13,8 @@ function Provider({ children }) {
     setShowSearch,
     heroes,
     setHeroes,
+    myList,
+    setMyList,
   };
 
   return (

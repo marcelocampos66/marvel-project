@@ -13,7 +13,7 @@ function Home() {
       {
         showSearch && <Search />
       }
-      <ListCharacters />
+      <ListCharacters type="All" />
     </main>
   );
 }

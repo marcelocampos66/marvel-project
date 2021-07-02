@@ -1,15 +1,18 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import * as S from '../CSS/S.ListCharacters';
 import AppContext from '../context/AppContext';
 
-function ListCharacters() {
+function ListCharacters({ type }) {
   const { heroes } = useContext(AppContext);
+  const { myList } = useContext(AppContext);
+  const list = (type === 'favorite') ? myList : heroes;
 
   return (
     <S.Section>
       <S.DivFlexStart>
         {
-          heroes.map(({
+          list.map(({
             _id: id,
             name,
             image: { url },
@@ -40,5 +43,9 @@ function ListCharacters() {
     </S.Section>
   );
 }
+
+ListCharacters.propTypes = {
+  type: PropTypes.string.isRequired,
+};
 
 export default ListCharacters;

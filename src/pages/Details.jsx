@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import Header from '../components/Header';
 import AppContext from '../context/AppContext';
+import Header from '../components/Header';
+import Button from '../components/Button';
 import * as S from '../CSS/S.Details';
 
 function Details({ match: { params: { id } } }) {
@@ -24,7 +25,15 @@ function Details({ match: { params: { id } } }) {
     },
   } = currentHero;
 
-  // Kinship;
+  const handleClick = () => {
+    const { _id: heroId } = currentHero;
+    const heroList = JSON.parse(localStorage.getItem('heroList'));
+    const isOnList = heroList.some((listId) => listId === heroId);
+    if (!isOnList) {
+      const newHeroList = [...heroList, heroId];
+      localStorage.setItem('heroList', JSON.stringify(newHeroList));
+    }
+  };
 
   return (
     <main>
@@ -72,6 +81,9 @@ function Details({ match: { params: { id } } }) {
           <li>{`Occupation: ${occupation}`}</li>
         </ul>
       </S.BiographySection>
+      <div>
+        <Button text="Add to list" click={handleClick} />
+      </div>
     </main>
   );
 }

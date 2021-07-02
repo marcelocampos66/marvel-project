@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import AppContext from '../context/AppContext';
-import FilterButton from './FilterButton';
+import Button from './Button';
 import InputText from './InputText';
 
 function Search() {
@@ -30,11 +30,11 @@ function Search() {
     <section>
       <div>
         <InputText change={handleChange} value={inputValue} placeholder={placeholderText} />
-        <FilterButton text="Search" click={handleClick} />
+        <Button text="Search" click={handleClick} />
       </div>
       <div>
-        <FilterButton text="All" click={handleClick} />
-        <FilterButton text="Powerfull" click={handleClick} />
+        <Button text="All" click={handleClick} />
+        <Button text="Powerfull" click={handleClick} />
       </div>
     </section>
   );

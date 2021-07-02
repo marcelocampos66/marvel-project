@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function FilterButton({ text, click }) {
+function Button({ text, click }) {
   return (
     <button
       type="button"
@@ -13,9 +13,9 @@ function FilterButton({ text, click }) {
   );
 }
 
-FilterButton.propTypes = {
+Button.propTypes = {
   text: PropTypes.string.isRequired,
   click: PropTypes.func.isRequired,
 };
 
-export default FilterButton;
+export default Button;

@@ -28,6 +28,13 @@ function Login() {
     setLoginInfo({ ...loginInfo, [name]: value })
   );
 
+  const handleClick = () => {
+    if (!localStorage.getItem('heroList')) {
+      localStorage.setItem('heroList', JSON.stringify([]));
+    }
+    setRedirect(true);
+  };
+
   if (redirect) return <Redirect to="/home" />;
   return (
     <main>
@@ -56,7 +63,7 @@ function Login() {
           <button
             type="button"
             disabled={disableButton}
-            onClick={() => setRedirect(true)}
+            onClick={handleClick}
           >
             Login
           </button>
