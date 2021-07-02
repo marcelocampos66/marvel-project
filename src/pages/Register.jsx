@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import * as S from '../CSS/S.Register';
+import register from '../images/becomeamember.png';
 
 const initialState = {
   name: '',
@@ -53,38 +55,50 @@ function Register() {
   };
 
   const renderInput = (type, nameInput, labelText) => (
-    <label htmlFor={nameInput}>
-      {`${labelText}:`}
-      <input
+    <S.DivInput
+      direction={type === 'checkbox' ? 'row' : 'column'}
+      align={type === 'checkbox' ? 'center' : 'stretch'}
+    >
+      <S.Label
+        htmlFor={nameInput}
+        className={type === 'checkbox' ? 'checkbox' : 'others'}
+      >
+        {`${labelText}:`}
+      </S.Label>
+      <S.Input
         type={type}
         id={nameInput}
         name={nameInput}
         value={formData[nameInput]}
+        larguraMin={type === 'checkbox' ? '20px' : '100px'}
+        largura={type === 'checkbox' ? '20px' : '90%'}
         onChange={handleChange}
+        className={type === 'checkbox' ? 'checkbox' : 'others'}
       />
-    </label>
+    </S.DivInput>
   );
 
   const temrText = 'I agree with the terms';
 
   return (
-    <main>
-      <h1>Register</h1>
-      <form>
+    <S.Main>
+      <S.Img src={register} alt="Become a member" />
+      <S.Form>
         {renderInput('text', 'name', 'Name')}
         {renderInput('number', 'age', 'Age')}
         {renderInput('text', 'email', 'Email')}
         {renderInput('password', 'password', 'Password')}
         {renderInput('checkbox', 'terms', temrText)}
-      </form>
-      <button
+      </S.Form>
+      <S.Button
         type="submit"
         disabled={disableButton}
+        style={{ 'background-color': ((disableButton) ? 'gray' : 'red') }}
         onClick={() => {}}
       >
         Register now!
-      </button>
-    </main>
+      </S.Button>
+    </S.Main>
   );
 }
 
