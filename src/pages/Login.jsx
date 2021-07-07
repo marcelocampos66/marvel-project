@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import * as S from '../CSS/S.Login';
+import logo from '../images/superheroeslogo.png';
 
 function Login() {
   const [loginInfo, setLoginInfo] = useState({ email: '', password: '' });
@@ -37,43 +39,36 @@ function Login() {
 
   if (redirect) return <Redirect to="/home" />;
   return (
-    <main>
-      <h1>Super Heroes List</h1>
-      <section>
-        <h3>Login</h3>
-        <div>
-          <label htmlFor="email">
-            Email:
-            <input
-              type="text"
-              id="email"
-              name="email"
-              onChange={handleChange}
-            />
-          </label>
-          <label htmlFor="password">
-            Password:
-            <input
-              type="password"
-              id="password"
-              name="password"
-              onChange={handleChange}
-            />
-          </label>
-          <button
+    <S.Main>
+      <S.Section>
+        <S.Img src={logo} alt="Logo Super Heroes List" />
+        <S.DivInputs>
+          <S.Input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+          />
+          <S.Input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+          />
+          <S.Button
             type="button"
             disabled={disableButton}
-            onClick={handleClick}
+            style={{ 'background-color': ((disableButton) ? 'gray' : 'red') }}
+            onClick={() => handleClick}
           >
             Login
-          </button>
-        </div>
-      </section>
-      <section>
-        <p>Not registered?</p>
-        <Link to="/register"><p>Register here!</p></Link>
-      </section>
-    </main>
+          </S.Button>
+        </S.DivInputs>
+        <S.SLink to="/register"><p>Not registered? Click here!</p></S.SLink>
+      </S.Section>
+    </S.Main>
   );
 }
 
