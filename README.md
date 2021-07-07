@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+<h1 align="center">Super Heroes List - 🚧 Em desenvolvimento 🚧<h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Generic badge](https://img.shields.io/badge/Status-In%20Progress-yellow?style=for-the-badge&logo=appveyor)](https://shields.io/) 
+[![Generic badge](https://img.shields.io/badge/Patern-Eslint_Airbnb-red?style=for-the-badge&logo=appveyor)](https://shields.io/) 
+[![Generic badge](https://img.shields.io/badge/Develop-Full%20Stack-blue?style=for-the-badge&logo=appveyor)](https://shields.io/)  
+ 
+<h3>A aplicação consiste em um CRUD onde a pessoa usuária poderá criar sua própria lista de heróis favoritos. Será possível utilizar os personagens constantes no banco de dados ou ainda acrescentar os seus próprios.</h3>
+  
+  (Gif da aplicação aqui)
+<br>
 
-## Available Scripts
+<p align="center">
+ <a href="Desafio proposto">Desafio Proposto</a> •
+ <a href="#Decisões técnicas">Decisões técnicas</a> •
+ <a href="#Controle e planejamento">Controle e planejamento</a> •
+ <a href="#🚧 Features 🚧">Features</a> •
+ <a href="#Versões">Versões</a> •
+ <a href="#Tecnologias">Tecnologias</a>
+</p>
+<br>
+  
+<h2>Desafio proposto</h2>
 
-In the project directory, you can run:
+<p>A proposta por trás deste projeto foi desafiar os conhecimentos de programação full stack, por isso foi decidido que os padrões de código e desenvolvimento deveriam seguir as melhores práticas de mercado.</p>
 
-### `npm start`
+<p>O resultado à pessoa usuária deverá ser uma aplicação web responsiva para Mobile e Desktop, onde estará disponível uma base de mais de 700 personsagens para a montade de lista de personagens favoritos. Deverá ser possível incluir na lista personagens que não constam no banco por meio de formulário.</p>
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<h2>Decisões técnicas</h2>
+  
+<p>Considerando o desafio proposto foram tomadas as seguintes decisões técnicas:</p>
 
-### `npm test`
+  
+<h3>Controle e planejamento</h3>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<li>Trello</li>
+<li>DM às 9h</li>
+<li>Design via Figma</li>
+<li>Fluxogramas: De navegação e de fluxo de dados</li>
+<li>Documentação do código</>
+<br>
+  
 
-### `npm run build`
+<h3>Front-end</h3>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<li>Desenvolvimento em React</li>
+<li>Gerenciamento de estados via context API</li>
+<li>Testes unitários</li>
+<li>Utilização de Eslint padrão Airbnb</li>
+<br>
+  
+  
+<h3>Back-end</h3>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<li>Banco de dados em MongoDB</li>
+<li>Utilização de node</li>
+<li>Testes unitários</li>
+<li>Integração com o Front-end por meio de API</li>
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+<h2>Aplicação em produção</h2>
+  
+<p>É possível verificar o vídeo da aplicação em produção neste "link" (Em desenvolvimento)</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<p>Há possibilidade de rodar localmente a aplicação por meio dos seguintes passos: (Em desenvolvimento)</p>
+ 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<hr>
+  
+<h3 align=center>Equipe</h3>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<table align=center>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/jiarguello">
+        <img width='100px' src='https://avatars.githubusercontent.com/u/72360446?v=4' Alt= Jhonatan Perfil>
+      </a>
+    </td>  
+    <td align="center">
+      <a href="https://github.com/marcelocampos66"> 
+        <img width='100px' src='https://avatars.githubusercontent.com/u/31359152?s=60&v=4' Alt= Marcelo Perfil>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/jiarguello">
+        Jhonatan Arguello
+      </a>   
+    </td>
+    <td>
+      <a href="https://github.com/marcelocampos66"> 
+        Marcelo Campos
+      </a>
+    </td>
+  </tr>
+</table>

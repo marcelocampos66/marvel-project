@@ -5,6 +5,7 @@ import Details from './pages/Details';
 import HeroesList from './pages/HeroesList';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/home" component={Home} />
       <Route path="/details/:id" component={Details} />
       <Route path="/heroes-list" component={HeroesList} />
+      <Route component={NotFound} />
     </Switch>
   );
 }
