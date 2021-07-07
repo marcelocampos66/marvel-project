@@ -77,24 +77,23 @@
       <a href="https://github.com/jiarguello">
         <img width='100px' src='https://avatars.githubusercontent.com/u/72360446?v=4' Alt= Jhonatan Perfil>
       </a>
-    </td>
-      
+    </td>  
     <td align="center">
       <a href="https://github.com/marcelocampos66"> 
         <img width='100px' src='https://avatars.githubusercontent.com/u/31359152?s=60&v=4' Alt= Marcelo Perfil>
       </a>
     </td>
   </tr>
-   <tr>
+  <tr>
     <td>
       <a href="https://github.com/jiarguello">
         Jhonatan Arguello
       </a>   
     </td>
+    <td>
       <a href="https://github.com/marcelocampos66"> 
-        Jhonatan Arguello
+        Marcelo Campos
       </a>
     </td>
   </tr>
 </table>
-</div>
