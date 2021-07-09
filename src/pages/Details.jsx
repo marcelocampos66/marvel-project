@@ -56,23 +56,23 @@ function Details({ match: { params: { id } } }) {
       </S.PowerStatusSection>
       <S.MainInfoSection>
         <h4>Main information</h4>
-        <p>{`Race: ${race}`}</p>
-        <p>{`Alignment: ${alignment}`}</p>
-        <p>{`Gender: ${gender}`}</p>
-        <p>{`Eye color: ${eyeColor}`}</p>
-        <p>{`Hair: ${hairColor}`}</p>
-        <p>{`Weight: ${weight[1]}`}</p>
-        <p>{`Height: ${height[1]}`}</p>
+        <p>{`Race: ${race === 'null' ? 'unknown' : race}`}</p>
+        <p>{`Alignment: ${alignment || 'unknown'}`}</p>
+        <p>{`Gender: ${gender || 'unknown'}`}</p>
+        <p>{`Eye color: ${eyeColor || 'unknown'}`}</p>
+        <p>{`Hair: ${hairColor || 'unknown'}`}</p>
+        <p>{`Weight: ${weight[0]} - ${weight[1]}`}</p>
+        <p>{`Height: ${height[0]} - ${height[1]}`}</p>
       </S.MainInfoSection>
       <S.BiographySection>
         <h4>Biography</h4>
         <p>{`Full name: ${fullName || name}`}</p>
-        <p>{`Group Affiliation: ${groupAffiliation}`}</p>
-        <p>{`Alter egos: ${alterEgos}`}</p>
-        <p>{`Publisher: ${publisher}`}</p>
-        <p>{`First appearance: ${firstAppearance}`}</p>
-        <p>{`Place of birth: ${placeOfBirth}`}</p>
-        <p>{`Relatives: ${relatives}`}</p>
+        <p>{`Group Affiliation: ${groupAffiliation || 'unknown'}`}</p>
+        <p>{`Alter egos: ${alterEgos || 'unknown'}`}</p>
+        <p>{`Publisher: ${publisher || 'unknown'}`}</p>
+        <p>{`First appearance: ${firstAppearance || 'unknown'}`}</p>
+        <p>{`Place of birth: ${placeOfBirth || 'unknown'}`}</p>
+        <p>{`Relatives: ${relatives || 'unknown'}`}</p>
         <p>Aliases:</p>
         <ul>{aliases.map((aliase) => <li key={aliase}>{aliase}</li>)}</ul>
         <p>Work:</p>
