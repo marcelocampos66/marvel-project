@@ -61,7 +61,7 @@ function Login() {
             type="button"
             disabled={disableButton}
             style={{ 'background-color': ((disableButton) ? 'gray' : 'red') }}
-            onClick={() => handleClick}
+            onClick={handleClick}
           >
             Login
           </S.Button>

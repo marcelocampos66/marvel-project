@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import AppContext from './AppContext';
-import { data, list } from '../data/mock';
+import { list } from '../data/mock';
 
 function Provider({ children }) {
-  const [heroes, setHeroes] = useState(data);
+  const [heroes, setHeroes] = useState([]);
+  const [page, setPage] = useState(1);
   const [myList, setMyList] = useState(list);
   const [showSearch, setShowSearch] = useState(false);
 
@@ -15,6 +16,8 @@ function Provider({ children }) {
     setHeroes,
     myList,
     setMyList,
+    page,
+    setPage,
   };
 
   return (
