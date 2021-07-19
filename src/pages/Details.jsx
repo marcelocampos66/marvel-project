@@ -2,8 +2,11 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import AppContext from '../context/AppContext';
 import Header from '../components/Header';
-import Button from '../components/Button';
+// import Button from '../components/Button';
 import * as S from '../CSS/S.Details';
+import * as I from '../helpers/percentualPathImages';
+import imageScore from '../helpers/imageScore';
+import seta from '../images/SetaW.png';
 
 function Details({ match: { params: { id } } }) {
   const { heroes } = useContext(AppContext);
@@ -23,7 +26,13 @@ function Details({ match: { params: { id } } }) {
     powerstats: {
       combat, durability, intelligence, power, speed, strength,
     },
+    overall,
   } = currentHero;
+
+  const heroStatus = [
+    { combat }, { durability }, { intellect: intelligence },
+    { power }, { speed }, { strength },
+  ];
 
   const handleClick = () => {
     const { _id: heroId } = currentHero;
@@ -36,55 +45,98 @@ function Details({ match: { params: { id } } }) {
   };
 
   return (
-    <main>
+    <S.Main>
       <Header />
-      <h1>{name}</h1>
-      <S.PowerStatusSection>
-        <S.HeroImg
-          src={url}
-          alt={`${name}`}
-        />
+      <S.HeroSec>
+        <S.H1Tittle>{name}</S.H1Tittle>
+        <S.Hero>
+          <S.HeroImg
+            src={url}
+            alt={`${name}`}
+          />
+          <S.OverallContainer>
+            <S.OverallImg
+              src={`${I[imageScore(overall)]}`}
+              alt="overall"
+            />
+            <S.H1Tittle>OVERALL</S.H1Tittle>
+          </S.OverallContainer>
+        </S.Hero>
+      </S.HeroSec>
+      <S.StatusSection>
+        <S.Dropdown>
+          <S.H4tittle>POWER STATUS</S.H4tittle>
+          <S.Arrow
+            src={seta}
+            alt="seta dropdown"
+          />
+        </S.Dropdown>
         <S.PowerStatusDiv>
-          <h4>Power Status</h4>
-          <p>{`Combat: ${combat}`}</p>
-          <p>{`Durability: ${durability}`}</p>
-          <p>{`Intelligence: ${intelligence}`}</p>
-          <p>{`Power: ${power}`}</p>
-          <p>{`Speed: ${speed}`}</p>
-          <p>{`Strength: ${strength}`}</p>
+          {
+            heroStatus.map((obj) => {
+              const status = Object.entries(obj);
+              return (
+                <S.StatusDiv key={status[0][0]}>
+                  <S.H4status>{status[0][0].toUpperCase()}</S.H4status>
+                  <S.StatusImg
+                    src={`${I[imageScore(status[0][1])]}`}
+                    alt={status[0][1]}
+                  />
+                </S.StatusDiv>
+              );
+            })
+          }
         </S.PowerStatusDiv>
-      </S.PowerStatusSection>
+      </S.StatusSection>
       <S.MainInfoSection>
-        <h4>Main information</h4>
-        <p>{`Race: ${race === 'null' ? 'unknown' : race}`}</p>
-        <p>{`Alignment: ${alignment || 'unknown'}`}</p>
-        <p>{`Gender: ${gender || 'unknown'}`}</p>
-        <p>{`Eye color: ${eyeColor || 'unknown'}`}</p>
-        <p>{`Hair: ${hairColor || 'unknown'}`}</p>
-        <p>{`Weight: ${weight[0]} - ${weight[1]}`}</p>
-        <p>{`Height: ${height[0]} - ${height[1]}`}</p>
+        <S.Dropdown>
+          <S.H4tittle>MAIN INFORMATION</S.H4tittle>
+          <S.Arrow
+            src={seta}
+            alt="seta dropdown"
+          />
+        </S.Dropdown>
+        <S.InfosContainer>
+          <S.InfoP>{`Race: ${race === 'null' ? 'unknown' : race}`}</S.InfoP>
+          <S.InfoP>{`Alignment: ${alignment || 'unknown'}`}</S.InfoP>
+          <S.InfoP>{`Gender: ${gender || 'unknown'}`}</S.InfoP>
+          <S.InfoP>{`Eye color: ${eyeColor || 'unknown'}`}</S.InfoP>
+          <S.InfoP>{`Hair: ${hairColor || 'unknown'}`}</S.InfoP>
+          <S.InfoP>{`Weight: ${weight[0]} - ${weight[1]}`}</S.InfoP>
+          <S.InfoP>{`Height: ${height[0]} - ${height[1]}`}</S.InfoP>
+        </S.InfosContainer>
       </S.MainInfoSection>
       <S.BiographySection>
-        <h4>Biography</h4>
-        <p>{`Full name: ${fullName || name}`}</p>
-        <p>{`Group Affiliation: ${groupAffiliation || 'unknown'}`}</p>
-        <p>{`Alter egos: ${alterEgos || 'unknown'}`}</p>
-        <p>{`Publisher: ${publisher || 'unknown'}`}</p>
-        <p>{`First appearance: ${firstAppearance || 'unknown'}`}</p>
-        <p>{`Place of birth: ${placeOfBirth || 'unknown'}`}</p>
-        <p>{`Relatives: ${relatives || 'unknown'}`}</p>
-        <p>Aliases:</p>
-        <ul>{aliases.map((aliase) => <li key={aliase}>{aliase}</li>)}</ul>
-        <p>Work:</p>
-        <ul>
-          <li>{`Base: ${base}`}</li>
-          <li>{`Occupation: ${occupation}`}</li>
-        </ul>
+        <S.Dropdown>
+          <S.H4tittle>BIOGRAPHY</S.H4tittle>
+          <S.Arrow
+            src={seta}
+            alt="seta dropdown"
+          />
+        </S.Dropdown>
+        <S.InfosContainer>
+          <S.InfoP>{`Full name: ${fullName || name}`}</S.InfoP>
+          <S.InfoP>{`Group Affiliation: ${groupAffiliation || 'unknown'}`}</S.InfoP>
+          <S.InfoP>{`Alter egos: ${alterEgos || 'unknown'}`}</S.InfoP>
+          <S.InfoP>{`Publisher: ${publisher || 'unknown'}`}</S.InfoP>
+          <S.InfoP>{`First appearance: ${firstAppearance || 'unknown'}`}</S.InfoP>
+          <S.InfoP>{`Place of birth: ${placeOfBirth || 'unknown'}`}</S.InfoP>
+          <S.InfoP>{`Relatives: ${relatives || 'unknown'}`}</S.InfoP>
+          <S.InfoP>Aliases:</S.InfoP>
+          <ul>{aliases.map((aliase) => <li key={aliase}>{aliase}</li>)}</ul>
+          <S.InfoP>Work:</S.InfoP>
+          <ul>
+            <li>{`Base: ${base}`}</li>
+            <li>{`Occupation: ${occupation}`}</li>
+          </ul>
+        </S.InfosContainer>
       </S.BiographySection>
       <div>
-        <Button text="Add to list" click={handleClick} />
+        <S.Button type="button" onClick={handleClick}>
+          Add to list
+        </S.Button>
       </div>
-    </main>
+    </S.Main>
   );
 }
 
