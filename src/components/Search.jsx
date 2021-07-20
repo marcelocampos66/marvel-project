@@ -2,22 +2,23 @@ import React, { useState, useContext } from 'react';
 import AppContext from '../context/AppContext';
 import Button from './Button';
 import InputText from './InputText';
+import { searchHeroesByName, getAPageOfHeroes } from '../services/api';
 
 function Search() {
-  const { heroes, setHeroes } = useContext(AppContext);
+  const { setHeroes } = useContext(AppContext);
   const [inputValue, setInputValue] = useState('');
 
   const handleChange = ({ target: { value } }) => setInputValue(value);
 
-  const handleClick = ({ target: { name } }) => {
+  const handleClick = async ({ target: { name } }) => {
     if (name === 'Search') {
       const lowerCaseInput = inputValue.toLowerCase();
-      const result = heroes
-        .filter(({ name: heroName }) => heroName.toLowerCase().includes(lowerCaseInput));
+      const result = await searchHeroesByName(lowerCaseInput);
       setHeroes(result);
     }
     if (name === 'All') {
-      console.log('Clicou no All');
+      const pageOfHeroes = await getAPageOfHeroes(1);
+      setHeroes(pageOfHeroes);
     }
     if (name === 'Powerfull') {
       console.log('Clicou no Powerfull');

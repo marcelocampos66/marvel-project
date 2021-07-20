@@ -69,6 +69,8 @@ export const StatusSection = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+  // visibility: hidden;
 `;
 
 export const PowerStatusDiv = styled.div`
@@ -127,7 +129,7 @@ export const Button = styled.button`
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  margin-bottom: 10px;
+  margin: 10px 0;
 
   display: flex;
   justify-content: center;
