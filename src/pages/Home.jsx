@@ -7,7 +7,10 @@ import { getAPageOfHeroes } from '../services/api';
 
 function Home() {
   const [loading, setLoading] = useState(false);
-  const { showSearch, setHeroes, page } = useContext(AppContext);
+  const {
+    showSearch, setHeroes,
+    page, setPage,
+  } = useContext(AppContext);
 
   const fetchPage = async (indexNumber) => {
     setLoading(true);
@@ -29,6 +32,21 @@ function Home() {
         showSearch && <Search />
       }
       <ListCharacters type="All" />
+      <div>
+        <button
+          type="button"
+          onClick={() => setPage(page - 1)}
+        >
+          Previous
+        </button>
+        <span>{page}</span>
+        <button
+          type="button"
+          onClick={() => setPage(page + 1)}
+        >
+          Next
+        </button>
+      </div>
     </main>
   );
 }
