@@ -133,5 +133,4 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   font-weight: bold;
-
 `;

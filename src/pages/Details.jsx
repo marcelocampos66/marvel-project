@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import AppContext from '../context/AppContext';
 import Header from '../components/Header';
-// import Button from '../components/Button';
 import * as S from '../CSS/S.Details';
 import * as I from '../helpers/percentualPathImages';
 import imageScore from '../helpers/imageScore';
