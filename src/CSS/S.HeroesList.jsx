@@ -5,6 +5,6 @@ export const Main = styled.main`
 `;
 
 export const Section = styled.section`
-  margin-top: 100px;
-  background-color: red;
+  margin-top: 50px;
+  padding-top: 10px;
 `;
