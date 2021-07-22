@@ -4,7 +4,9 @@ import ListCharacters from '../components/ListCharacters';
 import Button from '../components/Button';
 import AppContext from '../context/AppContext';
 import SelectFilter from '../components/SelectFilter';
+import { getMyListOfHeroes } from '../services/api';
 import { compareAZ, compareZA } from '../helpers/sortBy';
+import * as S from '../CSS/S.HeroesList';
 
 const initialState = {
   renderDrop: false,
@@ -12,11 +14,9 @@ const initialState = {
 
 function HeroesList() {
   const [state, setState] = useState(initialState);
+  const [loading, setLoading] = useState(true);
   const [change, setChange] = useState(false);
-  const { myList } = useContext(AppContext);
-
-  // const ids = JSON.parse(localStorage.getItem('heroList'));
-  // console.log(myList.sort());
+  const { myList, setMyList, showSearch } = useContext(AppContext);
 
   const handleSortBy = ({ target: { name } }) => {
     setState(initialState);
@@ -33,22 +33,37 @@ function HeroesList() {
     setChange(!change);
   };
 
+  const getMyList = async () => {
+    const ids = JSON.parse(localStorage.getItem('heroList'));
+    const result = await getMyListOfHeroes(JSON.stringify({ ids }));
+    setMyList(result);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    getMyList();
+  }, []);
+
   useEffect(() => {}, [change]);
+
+  if (loading) return <p>Loading...</p>;
 
   const { renderDrop } = state;
 
   return (
     <main>
-      <section>
-        <Header />
-        <p>Heroes List</p>
-        <p>Order by:</p>
-        <Button text="A-Z" click={handleSortBy} />
-        <Button text="Power" click={handleSortBy} />
-        <Button text="Aspects" click={handleSortBy} />
-        <Button text="Filter" click={handleSortBy} />
-        { renderDrop && <SelectFilter /> }
-      </section>
+      <Header />
+      { !showSearch && (
+        <S.Section>
+          <p>Heroes List</p>
+          <p>Order by:</p>
+          <Button text="A-Z" click={handleSortBy} />
+          <Button text="Power" click={handleSortBy} />
+          <Button text="Aspects" click={handleSortBy} />
+          <Button text="Filter" click={handleSortBy} />
+          { renderDrop && <SelectFilter /> }
+        </S.Section>
+      )}
       <ListCharacters type="favorite" />
     </main>
   );

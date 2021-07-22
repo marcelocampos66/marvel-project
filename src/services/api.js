@@ -17,3 +17,9 @@ export const getHeroById = (id) => {
   return fetch(endpoint)
     .then((response) => response.json()).then((data) => data);
 };
+
+export const getMyListOfHeroes = (ids) => {
+  const endpoint = `https://heroes-list-api.herokuapp.com/heroes/mylist/${ids}`;
+  return fetch(endpoint)
+    .then((response) => response.json()).then((data) => data);
+};
