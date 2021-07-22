@@ -1,15 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Header from '../components/Header';
 import ListCharacters from '../components/ListCharacters';
-import Search from '../components/Search';
 import AppContext from '../context/AppContext';
 import { getAPageOfHeroes } from '../services/api';
 
 function Home() {
   const [loading, setLoading] = useState(false);
   const {
-    showSearch, setHeroes,
-    page, setPage,
+    setHeroes, page,
+    setPage,
   } = useContext(AppContext);
 
   const fetchPage = async (indexNumber) => {
@@ -28,9 +27,6 @@ function Home() {
   return (
     <main>
       <Header />
-      {
-        showSearch && <Search />
-      }
       <ListCharacters type="All" />
       <div>
         <button
