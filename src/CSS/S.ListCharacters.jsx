@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const Section = styled.main`
   display: flex;
   justify-content: center;
+  margin-top: 50px;
 `;
 
 export const DivContent = styled.div`

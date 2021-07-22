@@ -6,6 +6,8 @@ import HeroesList from './pages/HeroesList';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import NotFound from './pages/NotFound';
+import Profile from './pages/Profile';
+import AddHero from './pages/AddHero';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <Route path="/home" component={Home} />
       <Route path="/details/:id" component={Details} />
       <Route path="/heroes-list" component={HeroesList} />
+      <Route path="/profile" component={Profile} />
+      <Route path="/add-hero" component={AddHero} />
       <Route component={NotFound} />
     </Switch>
   );
