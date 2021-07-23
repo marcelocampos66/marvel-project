@@ -23,3 +23,9 @@ export const getMyListOfHeroes = (ids) => {
   return fetch(endpoint)
     .then((response) => response.json()).then((data) => data);
 };
+
+export const getQuantityOfHeroes = () => {
+  const endpoint = 'https://heroes-list-api.herokuapp.com/heroes/quantity';
+  return fetch(endpoint)
+    .then((response) => response.json()).then((data) => data);
+};

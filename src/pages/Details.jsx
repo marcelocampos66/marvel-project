@@ -96,10 +96,10 @@ function Details({ match: { params: { id } } }) {
           </S.OverallContainer>
         </S.Hero>
       </S.HeroSec>
-      <S.StatusSection
-        onClick={() => handleDrop('powerStatusDrop')}
-      >
-        <S.Dropdown>
+      <S.StatusSection>
+        <S.Dropdown
+          onClick={() => handleDrop('powerStatusDrop')}
+        >
           <S.H4tittle>POWER STATUS</S.H4tittle>
           <S.Arrow
             src={seta}
@@ -125,10 +125,10 @@ function Details({ match: { params: { id } } }) {
           </S.PowerStatusDiv>
         )}
       </S.StatusSection>
-      <S.MainInfoSection
-        onClick={() => handleDrop('mainInformationDrop')}
-      >
-        <S.Dropdown>
+      <S.MainInfoSection>
+        <S.Dropdown
+          onClick={() => handleDrop('mainInformationDrop')}
+        >
           <S.H4tittle>MAIN INFORMATION</S.H4tittle>
           <S.Arrow
             src={seta}
@@ -147,10 +147,10 @@ function Details({ match: { params: { id } } }) {
           </S.InfosContainer>
         )}
       </S.MainInfoSection>
-      <S.BiographySection
-        onClick={() => handleDrop('biographyDrop')}
-      >
-        <S.Dropdown>
+      <S.BiographySection>
+        <S.Dropdown
+          onClick={() => handleDrop('biographyDrop')}
+        >
           <S.H4tittle>BIOGRAPHY</S.H4tittle>
           <S.Arrow
             src={seta}

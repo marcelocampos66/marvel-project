@@ -6,10 +6,15 @@ function Provider({ children }) {
   const [heroes, setHeroes] = useState([]);
   const [page, setPage] = useState(1);
   const [myList, setMyList] = useState([]);
+  const [backupList, setBackupList] = useState([]);
   const [showSearch, setShowSearch] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const [change, setChange] = useState(false);
+  const [quantity, setQuantity] = useState(0);
 
   const contextValue = {
+    change,
+    setChange,
     showSearch,
     setShowSearch,
     showMenu,
@@ -18,8 +23,12 @@ function Provider({ children }) {
     setHeroes,
     myList,
     setMyList,
+    backupList,
+    setBackupList,
     page,
     setPage,
+    quantity,
+    setQuantity,
   };
 
   return (
