@@ -3,6 +3,7 @@ import AppContext from '../context/AppContext';
 import Button from './Button';
 import InputText from './InputText';
 import { searchHeroesByName, getAPageOfHeroes } from '../services/api';
+import * as S from '../CSS/S.Search';
 
 function Search() {
   const { setHeroes } = useContext(AppContext);
@@ -28,16 +29,20 @@ function Search() {
   const placeholderText = 'Search by character name...';
 
   return (
-    <section>
-      <div>
-        <InputText change={handleChange} value={inputValue} placeholder={placeholderText} />
+    <S.Section>
+      <S.Div>
+        <InputText
+          change={handleChange}
+          value={inputValue}
+          placeholder={placeholderText}
+        />
         <Button text="Search" click={handleClick} />
-      </div>
-      <div>
+      </S.Div>
+      <S.Div>
         <Button text="All" click={handleClick} />
         <Button text="Powerfull" click={handleClick} />
-      </div>
-    </section>
+      </S.Div>
+    </S.Section>
   );
 }
 

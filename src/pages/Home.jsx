@@ -4,6 +4,7 @@ import ListCharacters from '../components/ListCharacters';
 import AppContext from '../context/AppContext';
 import { getAPageOfHeroes } from '../services/api';
 import PageNavegation from '../components/PageNavegation';
+import Loading from '../components/Loading';
 
 function Home() {
   const [loading, setLoading] = useState(false);
@@ -20,8 +21,7 @@ function Home() {
     fetchPage(page);
   }, [page]);
 
-  const h1Loading = <h1>Loading...</h1>;
-  if (loading) return h1Loading;
+  if (loading) return <Loading />;
   return (
     <main>
       <Header />

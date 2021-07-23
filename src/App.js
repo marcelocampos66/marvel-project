@@ -8,6 +8,7 @@ import Register from './pages/Register';
 import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 import AddHero from './pages/AddHero';
+import Loading from './components/Loading';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/heroes-list" component={HeroesList} />
       <Route path="/profile" component={Profile} />
       <Route path="/add-hero" component={AddHero} />
+      <Route path="/loading" component={Loading} />
       <Route component={NotFound} />
     </Switch>
   );

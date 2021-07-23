@@ -25,6 +25,11 @@ function Header() {
     }
   };
 
+  const handleGoHomePage = () => {
+    setShowSearch(false);
+    setShowMenu(false);
+  };
+
   return (
     <S.Main>
       <S.Header>
@@ -32,7 +37,7 @@ function Header() {
           <S.Img src={menuIcon} alt="Ícone de Menu" />
         </S.DivButton>
         <S.DivButton>
-          <Link to="/home">
+          <Link to="/home" onClick={() => handleGoHomePage()}>
             <S.Img
               src={SHLlogo}
               alt="Logo da Marvel"

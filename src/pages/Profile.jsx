@@ -1,10 +1,23 @@
 import React from 'react';
+import * as S from '../CSS/S.Profile';
+import noUserImg from '../images/no-user-image.jpg';
 
 function Profile() {
   return (
-    <main>
+    <S.Main>
       <p>Olá usuário estranho</p>
-    </main>
+      <S.UserSection>
+        <S.UserImg
+          src={noUserImg}
+          alt="user"
+        />
+        <S.UserInfoDiv>
+          <p>Nome</p>
+          <p>Idade</p>
+          <p>Email</p>
+        </S.UserInfoDiv>
+      </S.UserSection>
+    </S.Main>
   );
 }
 

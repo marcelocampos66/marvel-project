@@ -14,7 +14,7 @@ function Menu() {
       <S.LINK to="/heroes-list" onClick={() => setShowMenu(false)}>My List</S.LINK>
       <S.LINK to="/add-hero" onClick={() => setShowMenu(false)}>Add Hero</S.LINK>
       <S.LINK to="/home" onClick={() => setShowMenu(false)}>Search</S.LINK>
-      <S.LINK onClick={() => setShowMenu(false) && setLogout(true)}>Logout</S.LINK>
+      <S.LINK onClick={() => setLogout(true)}>Logout</S.LINK>
     </S.Main>
   );
 }
