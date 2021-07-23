@@ -1,26 +1,27 @@
 import React, { useContext } from 'react';
 import AppContext from '../context/AppContext';
+import * as S from '../CSS/S.PageNavegation';
 
 function PageNavegation() {
   const { page, setPage } = useContext(AppContext);
 
   return (
-    <div>
-      <button
+    <S.Section>
+      <S.Button
         type="button"
         disabled={page === 1}
         onClick={() => setPage(page - 1)}
       >
         Previous
-      </button>
+      </S.Button>
       <span>{page}</span>
-      <button
+      <S.Button
         type="button"
         onClick={() => setPage(page + 1)}
       >
         Next
-      </button>
-    </div>
+      </S.Button>
+    </S.Section>
   );
 }
 
