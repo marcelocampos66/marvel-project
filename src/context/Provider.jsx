@@ -2,6 +2,16 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import AppContext from './AppContext';
 
+export const formInitialState = {
+  name: '',
+  age: '',
+  email: '',
+  password: '',
+  terms: false,
+  error: '',
+  image: '',
+};
+
 function Provider({ children }) {
   const [heroes, setHeroes] = useState([]);
   const [page, setPage] = useState(1);
@@ -11,6 +21,9 @@ function Provider({ children }) {
   const [showMenu, setShowMenu] = useState(false);
   const [change, setChange] = useState(false);
   const [quantity, setQuantity] = useState(0);
+  const [errorMessage, setErrorMessage] = useState();
+  const [formData, setFormData] = useState(formInitialState);
+  const [redirect, setRedirect] = useState(false);
 
   const contextValue = {
     change,
@@ -29,6 +42,12 @@ function Provider({ children }) {
     setPage,
     quantity,
     setQuantity,
+    errorMessage,
+    setErrorMessage,
+    formData,
+    setFormData,
+    redirect,
+    setRedirect,
   };
 
   return (

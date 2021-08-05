@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom';
 export const Main = styled.main`
   background-color: black;
   opacity: 0.5;
-  width: 100vh;
+  width: 50vw;
   display: flex;
   flex-direction: column;
   position: fixed;
   margin-top: 50px;
-  padding: 0 0 0 5%;
+  padding: 1em;
+  // height: 50vh;
   height: 100vh;
 `;
 

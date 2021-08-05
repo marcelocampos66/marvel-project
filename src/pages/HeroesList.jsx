@@ -3,19 +3,21 @@ import Header from '../components/Header';
 import ListCharacters from '../components/ListCharacters';
 import Filter from '../components/Filter';
 import Loading from '../components/Loading';
-import AppContext from '../context/AppContext';
-import { getMyListOfHeroes } from '../services/api';
+import myContext from '../context/AppContext';
+import { getMyListOfHeroes, deleteHeroOfList } from '../services/api';
 
 function HeroesList() {
   const [loading, setLoading] = useState(false);
-  const { setMyList, showSearch, setBackupList } = useContext(AppContext);
-
+  const { myList, setMyList, showSearch, setBackupList } = useContext(myContext);
+  
   const getMyList = async () => {
     setLoading(true);
-    const ids = JSON.parse(localStorage.getItem('heroList'));
-    const result = await getMyListOfHeroes(JSON.stringify({ ids }));
+      
+    const token = JSON.parse(localStorage.getItem('shlToken'));
+
+    const result = await getMyListOfHeroes(token);
     setMyList(result);
-    setBackupList(result);
+    setBackupList(result);    
     setLoading(false);
   };
 

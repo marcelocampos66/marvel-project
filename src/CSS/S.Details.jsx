@@ -26,7 +26,7 @@ export const Hero = styled.div`
 `;
 
 export const HeroImg = styled.img`
-  height: 22vh;
+  height: 22vh;  
 `;
 
 export const OverallContainer = styled.div`
@@ -94,12 +94,21 @@ export const StatusDiv = styled.div`
 `;
 
 export const StatusImg = styled.img`
+  max-width: 80px;
   width: 100%;
+
+  @media(min-width: 601px) {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 2%;
+  }
 `;
 
 export const H4status = styled.h4`
   padding: 0;
   margin: 0 0 5% 0;
+  font-size: 1.0em;
 `;
 
 export const H4tittle = styled.h3`

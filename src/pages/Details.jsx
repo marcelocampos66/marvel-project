@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../components/Header';
-import { getHeroById } from '../services/api';
+import { getHeroById, addHeroToList, deleteHeroOfList, getMyListOfHeroes } from '../services/api';
 import * as S from '../CSS/S.Details';
 import * as I from '../helpers/percentualPathImages';
 import imageScore from '../helpers/imageScore';
 import seta from '../images/SetaW.png';
+import Loading from '../components/Loading';
+import { Redirect } from 'react-router-dom';
+import myContext from '../context/AppContext';
 
 const initialState = {
   powerStatusDrop: true,
@@ -17,18 +20,41 @@ function Details({ match: { params: { id } } }) {
   const [controlDrop, setControlDrop] = useState(initialState);
   const [currentHero, setCurrentHero] = useState();
   const [loading, setLoading] = useState(true);
+  const [redirect, setRedirect] = useState(false);
+  const [favorite, setFavorite] = useState(false);
+  const { myList, setMyList } = useContext(myContext);
 
   const getHero = async () => {
-    const hero = await getHeroById(id);
+    const token = JSON.parse(localStorage.getItem('shlToken'));
+    const hero = await getHeroById(id, token);
+
+    if (hero.type === 'invalid_token') {
+      setRedirect(true);
+      return;
+    }
     setCurrentHero(hero);
     setLoading(false);
   };
+
+  const verifyFavorite = () => {
+    const find = myList.find((hero) => hero._id === id)
+    if (!find) {
+      setFavorite(false);
+      return;
+    }
+    setFavorite(true);
+  }
 
   useEffect(() => {
     getHero();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  useEffect(async () => {
+    await verifyFavorite(); 
+  }, [myList]);
+
+  if (loading) return <Loading />;
+  if (redirect) return <Redirect to='/' />;
 
   const {
     name,
@@ -52,15 +78,22 @@ function Details({ match: { params: { id } } }) {
     { power }, { speed }, { strength },
   ];
 
-  const handleClick = () => {
+    
+  const updateList = async () => {
+    const token = JSON.parse(localStorage.getItem('shlToken'));
     const { _id: heroId } = currentHero;
-    const heroList = JSON.parse(localStorage.getItem('heroList'));
-    const isOnList = heroList.some((listId) => listId === heroId);
-    if (!isOnList) {
-      const newHeroList = [...heroList, heroId];
-      localStorage.setItem('heroList', JSON.stringify(newHeroList));
-    }
-  };
+    const find = myList.find((hero) => hero._id === heroId);
+    if (!find) {
+      setMyList([...myList, currentHero]);
+      await addHeroToList(heroId , token);
+      return;
+    } 
+    setMyList((prev) => {
+      const newMyList = prev.filter((hero) => hero._id !== id)
+      return newMyList;
+     });
+    await deleteHeroOfList(heroId, token);
+  }
 
   const { powerStatusDrop, mainInformationDrop, biographyDrop } = controlDrop;
 
@@ -89,7 +122,7 @@ function Details({ match: { params: { id } } }) {
           />
           <S.OverallContainer>
             <S.OverallImg
-              src={`${I[imageScore(overall)]}`}
+              src={!imageScore(overall) ? I.unknown :`${I[imageScore(overall)]}`}
               alt="overall"
             />
             <S.H1Tittle>OVERALL</S.H1Tittle>
@@ -115,7 +148,7 @@ function Details({ match: { params: { id } } }) {
                   <S.StatusDiv key={status[0][0]}>
                     <S.H4status>{status[0][0].toUpperCase()}</S.H4status>
                     <S.StatusImg
-                      src={`${I[imageScore(status[0][1])]}`}
+                      src={!imageScore(status[0][1]) ? I.unknown : `${I[imageScore(status[0][1])]}`}
                       alt={status[0][1]}
                     />
                   </S.StatusDiv>
@@ -176,11 +209,11 @@ function Details({ match: { params: { id } } }) {
           </S.InfosContainer>
         )}
       </S.BiographySection>
-      <div>
-        <S.Button type="button" onClick={handleClick}>
-          Add to list
-        </S.Button>
-      </div>
+      <S.Button type="button" onClick={ () => updateList() }>   
+        {
+          favorite ? 'Remove' : 'Add'
+        }
+      </S.Button>
     </S.Main>
   );
 }

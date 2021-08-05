@@ -4,8 +4,7 @@ import * as S from '../CSS/S.ListCharacters';
 import AppContext from '../context/AppContext';
 
 function ListCharacters({ type }) {
-  const { heroes } = useContext(AppContext);
-  const { myList } = useContext(AppContext);
+  const { heroes, myList } = useContext(AppContext);
   const list = (type === 'favorite') ? myList : heroes;
 
   return (

@@ -18,6 +18,7 @@ import oitenta5 from '../images/percentual/85.png';
 import noventa from '../images/percentual/90.png';
 import noventa5 from '../images/percentual/95.png';
 import cem from '../images/percentual/100.png';
+import unknown from '../images/percentual/unknown.png';
 
 export {
   cinco,
@@ -40,4 +41,5 @@ export {
   noventa,
   noventa5,
   cem,
+  unknown,
 };
