@@ -1,9 +1,10 @@
 import styled, { keyframes } from 'styled-components';
-import { fadeIn, slideInDown, zoomInDown } from 'react-animations';
+import { fadeIn, slideInDown, zoomInDown, pulse } from 'react-animations';
 
 const zoomInDownEffect = keyframes`${zoomInDown}`;
 const slideInDownEffect = keyframes`${slideInDown}`;
 const fadeInEffect = keyframes`${fadeIn}`;
+const pulseEffect = keyframes`${pulse}`;
 
 export const Main = styled.main`
   display: flex;
@@ -162,4 +163,8 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   font-weight: bold;
+
+  &:active {
+    animation: 0.5s ${pulseEffect};
+  }
 `;
