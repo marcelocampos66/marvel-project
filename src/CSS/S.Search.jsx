@@ -1,5 +1,8 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { slideInRight } from 'react-animations';
 import Plus from '../images/plus.png';
+
+const slide = keyframes`${slideInRight}`;
 
 export const Section = styled.section`
   display: flex;
@@ -9,6 +12,8 @@ export const Section = styled.section`
   width: 100vw;
   height: 15vh;
   background-color: black;
+
+  animation: 0.5s ${slide};
 `;
 
 export const Div = styled.div`

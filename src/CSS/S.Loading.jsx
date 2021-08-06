@@ -16,6 +16,7 @@ export const Main = styled.main`
   align-items: center;
   justify-content: center;
   display: flex;
+  z-index: 3;
 `;
 
 export const Img = styled.img`
