@@ -44,69 +44,48 @@ function Filter({ clear }) {
     setChange(!change);
   };
 
+  const aspects = {
+    Height: () => myList
+      .sort((a, b) => convertToNumber(b.appearance.height[1])
+      - convertToNumber(a.appearance.height[1])),
+    Weight: () => myList
+      .sort((a, b) => convertToNumber(b.appearance.weight[1])
+      - convertToNumber(a.appearance.weight[1])),
+    Strength: () => myList
+      .sort((a, b) => convertToNumber(b.powerstats.strength)
+      - convertToNumber(a.powerstats.strength)),
+    Intelligence: () => myList
+      .sort((a, b) => convertToNumber(b.powerstats.intelligence)
+      - convertToNumber(a.powerstats.intelligence)),
+    Power: () => myList
+      .sort((a, b) => convertToNumber(b.powerstats.power)
+      - convertToNumber(a.powerstats.power)),
+    Speed: () => myList
+      .sort((a, b) => convertToNumber(b.powerstats.speed)
+      - convertToNumber(a.powerstats.speed)),
+    Durability: () => myList
+      .sort((a, b) => convertToNumber(b.powerstats.durability)
+      - convertToNumber(a.powerstats.durability)),
+    Combat: () => myList
+      .sort((a, b) => convertToNumber(b.powerstats.combat)
+      - convertToNumber(a.powerstats.combat)),
+    Good: () => setMyList(
+      backupList
+        .filter(({ biography: { alignment } }) => alignment === 'good'),
+    ),
+    Neutral: () => setMyList(
+      backupList
+        .filter(({ biography: { alignment } }) => alignment === 'neutral' || alignment === '-'),
+    ),
+    Bad: () => setMyList(
+      backupList
+        .filter(({ biography: { alignment } }) => alignment === 'bad'),
+    ),
+  };
+
   const handleChange = ({ target: { value } }) => {
-    switch (value) {
-      case 'Height':
-        myList
-          .sort((a, b) => convertToNumber(b.appearance.height[1])
-          - convertToNumber(a.appearance.height[1]));
-        break;
-      case 'Weight':
-        myList
-          .sort((a, b) => convertToNumber(b.appearance.weight[1])
-          - convertToNumber(a.appearance.weight[1]));
-        break;
-      case 'Strength':
-        myList
-          .sort((a, b) => convertToNumber(b.powerstats.strength)
-          - convertToNumber(a.powerstats.strength));
-        break;
-      case 'Intelligence':
-        myList
-          .sort((a, b) => convertToNumber(b.powerstats.intelligence)
-          - convertToNumber(a.powerstats.intelligence));
-        break;
-      case 'Power':
-        myList
-          .sort((a, b) => convertToNumber(b.powerstats.power)
-          - convertToNumber(a.powerstats.power));
-        break;
-      case 'Speed':
-        myList
-          .sort((a, b) => convertToNumber(b.powerstats.speed)
-          - convertToNumber(a.powerstats.speed));
-        break;
-      case 'Durability':
-        myList
-          .sort((a, b) => convertToNumber(b.powerstats.durability)
-          - convertToNumber(a.powerstats.durability));
-        break;
-      case 'Combat':
-        myList
-          .sort((a, b) => convertToNumber(b.powerstats.combat)
-          - convertToNumber(a.powerstats.combat));
-        break;
-      case 'Good':
-        setMyList(
-          backupList
-            .filter(({ biography: { alignment } }) => alignment === 'good'),
-        );
-        break;
-      case 'Neutral':
-        setMyList(
-          backupList
-            .filter(({ biography: { alignment } }) => alignment === 'neutral' || alignment === '-'),
-        );
-        break;
-      case 'Bad':
-        setMyList(
-          backupList
-            .filter(({ biography: { alignment } }) => alignment === 'bad'),
-        );
-        break;
-      default:
-        break;
-    }
+    if (value === 'Aspects' || value === 'Alignment') return;
+    aspects[value]();
     setChange(!change);
   };
 
