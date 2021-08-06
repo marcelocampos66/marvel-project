@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as S from '../CSS/S.InputText';
 
 function InputText({ change, value, placeholder }) {
   return (
-    <input
+    <S.Input
       type="text"
       onChange={change}
       value={value}

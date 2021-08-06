@@ -5,12 +5,28 @@ export const Main = styled.main`
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  padding: 5% 0;
   align-items: center;
+  // justify-content: space-bet;
+`;
+
+export const H1 = styled.h1`
+  margin: 10vh 0 2vh 0;
+`;
+
+export const H2 = styled.h2`
+  margin-top: 0vh;
+`;
+
+export const H3 = styled.h3`
+  margin-top: 0vh;
+`;
+
+export const H4 = styled.h4`
+  margin-top: 0vh;
 `;
 
 export const UserSection = styled.div`
-  height: 25vh;
+  height: 80vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -18,8 +34,8 @@ export const UserSection = styled.div`
 `;
 
 export const UserImg = styled.img`
-  width: 40%;
-  margin: 10%;
+  height: 30vh;
+  margin: 5%;
 `;
 
 export const UserInfoDiv = styled.div`
@@ -27,6 +43,8 @@ export const UserInfoDiv = styled.div`
   flex-direction: column;
   width: 80%;
   align-items: center;
+  height: 10vh;
+  margin-top: 5vh;
 `;
 
 export const Form = styled.form`
@@ -43,5 +61,22 @@ export const EditButtonContainer = styled.div`
 `;
 
 export const EditButton = styled.button`
-  width: 150px;
+  min-width: 150px;
+  height: 40px;
+  width: 20%;
+  background-color: ${(prop) => prop.type ? "red" : "black" };
+  border-radius: 10px;
+  margin-right: ${(prop) => prop.type ? "5%" : 0 };
+  color: white;
+  font-size: 1.2em;
+`;
+
+export const SubmitButton = styled.button`
+  min-width: 150px;
+  height: 40px;
+  width: 20%;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.2em;
 `;

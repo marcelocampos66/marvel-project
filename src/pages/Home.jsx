@@ -8,8 +8,7 @@ import Loading from '../components/Loading';
 import { Redirect } from 'react-router-dom';
 
 function Home() {
-  const [loading, setLoading] = useState(false);
-  const { setHeroes, setMyList, page, redirect, setRedirect } = useContext(AppContext);
+  const { setHeroes, setMyList, page, redirect, setRedirect, showPageNavigation, loading, setLoading } = useContext(AppContext);
 
   const fetchPage = async (indexNumber) => {
     setLoading(true);
@@ -32,13 +31,14 @@ function Home() {
   }, [page]);
 
   if (redirect) return <Redirect to='/' />;
-  if (loading) return <Loading />;
 
   return (
     <main>
       <Header />
-      <ListCharacters type="All" />
-      <PageNavegation />
+      {
+        loading ? <Loading /> : <ListCharacters type="All" />
+      }
+      {showPageNavigation && <PageNavegation />}
     </main>
   );
 }

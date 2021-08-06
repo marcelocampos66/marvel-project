@@ -4,7 +4,8 @@ import styled from 'styled-components';
 export const Section = styled.main`
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 10vh;
+  width: 100vw;
 `;
 
 export const DivContent = styled.div`
@@ -57,6 +58,7 @@ export const DivCard = styled.div`
 export const DivFlexStart = styled.div`
   flex-direction: column;
   flex-wrap: nowrap;
+  width: 85vw;
 
   @media(min-width: 601px) {
     display: flex;

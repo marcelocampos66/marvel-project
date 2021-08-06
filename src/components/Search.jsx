@@ -4,29 +4,37 @@ import Button from './Button';
 import InputText from './InputText';
 import { searchHeroesByName, getAPageOfHeroes } from '../services/api';
 import * as S from '../CSS/S.Search';
+import Plus from '../images/plus.png';
 
 function Search() {
-  const { setHeroes } = useContext(AppContext);
+  const { setHeroes, setShowSearch, setLoading, setShowPageNavigation } = useContext(AppContext);
   const [inputValue, setInputValue] = useState('');
 
   const handleChange = ({ target: { value } }) => setInputValue(value);
 
-  const handleClick = async ({ target: { name } }) => {
-    if (name === 'Search') {
-      const lowerCaseInput = inputValue.toLowerCase();
-      const result = await searchHeroesByName(lowerCaseInput);
-      setHeroes(result);
-    }
-    if (name === 'All') {
-      const pageOfHeroes = await getAPageOfHeroes(1);
-      setHeroes(pageOfHeroes);
-    }
-    if (name === 'Powerfull') {
-      console.log('Clicou no Powerfull');
-    }
+  const handleClick = async () => {
+    // if (name === 'Search') {
+    setLoading(true);
+    const lowerCaseInput = inputValue.toLowerCase();
+    const result = await searchHeroesByName(lowerCaseInput);
+    setHeroes(result);
+    setShowPageNavigation(false);
+    setLoading(false);
+    // }
+    // if (name === 'All') {
+    //   setLoading(true);
+    //   const token = JSON.parse(localStorage.getItem('shlToken'));
+    //   const pageOfHeroes = await getAPageOfHeroes(1, token);
+    //   setHeroes(pageOfHeroes);
+    //   setLoading(false);
+    // }
+    // if (name === 'Powerfull') {
+    //   console.log('Clicou no Powerfull');
+    // }
+    setShowSearch(false);
   };
 
-  const placeholderText = 'Search by character name...';
+  const placeholderText = 'Search by name...';
 
   return (
     <S.Section>
@@ -36,12 +44,17 @@ function Search() {
           value={inputValue}
           placeholder={placeholderText}
         />
-        <Button text="Search" click={handleClick} />
+        {/* <S.Button click={handleClick} /> */}
+        <S.DivImg
+          onClick={ () => handleClick() }
+        >
+          <S.Img src={Plus} alt="sinal de mais" />
+        </S.DivImg>
       </S.Div>
-      <S.Div>
+      {/* <S.Div>
         <Button text="All" click={handleClick} />
         <Button text="Powerfull" click={handleClick} />
-      </S.Div>
+      </S.Div> */}
     </S.Section>
   );
 }

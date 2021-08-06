@@ -100,15 +100,16 @@ export const loginUser = (user) => {
     .catch((err) => err);
 };
 
-export const updateUser = (body) => {
-  const endpoint = 'https://heroes-list-api.herokuapp.com/users';
-  delete body.terms && body.error;
+export const updateUser = (user, token) => {
+  const endpoint = 'https://heroes-list-api.herokuapp.com/users/update-infos';
+  delete user.terms && delete user.error && delete user.role && delete user.list;
   return fetch(endpoint, {
-    method: 'POST',
-    headers: { 
-      'Content-Type': 'application/json'
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': token
     },
-    body: JSON.stringify({ ...body }),
+    body: JSON.stringify({ ...user }),
   })
     .then((response) => response.json())
     .then((data) => data)

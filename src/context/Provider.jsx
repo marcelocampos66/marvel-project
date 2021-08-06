@@ -24,6 +24,8 @@ function Provider({ children }) {
   const [errorMessage, setErrorMessage] = useState();
   const [formData, setFormData] = useState(formInitialState);
   const [redirect, setRedirect] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [showPageNavigation, setShowPageNavigation] = useState(true);
 
   const contextValue = {
     change,
@@ -48,6 +50,10 @@ function Provider({ children }) {
     setFormData,
     redirect,
     setRedirect,
+    loading,
+    setLoading,
+    showPageNavigation,
+    setShowPageNavigation,
   };
 
   return (

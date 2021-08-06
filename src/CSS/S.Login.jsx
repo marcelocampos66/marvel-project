@@ -16,7 +16,7 @@ export const Section = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 90vh;
+  height: 100vh;
   width: 90vw;
 `;
 
@@ -33,7 +33,7 @@ export const DivInputs = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 15px;
-  width: 100%;
+  width: 90%;
 `;
 
 export const Input = styled.input`

@@ -1,21 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as S from '../CSS/S.SelectFilter';
 
 function SelectFilter({ list, onChange }) {
   return (
-    <div>
-      <select onChange={onChange}>
+    <S.Section>
+      <S.Select onChange={onChange}>
         {
           list.map((item) => (
-            <option
+            <S.Option
               key={item}
             >
               {item}
-            </option>
+            </S.Option>
           ))
         }
-      </select>
-    </div>
+      </S.Select>
+    </S.Section>
   );
 }
 

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import AppContext from '../context/AppContext';
 import { compareAZ, compareZA } from '../helpers/sortBy';
 import SelectFilter from './SelectFilter';
+import * as S from '../CSS/S.Filter';
 
 function Filter({ clear }) {
   const [asc, setAsc] = useState(false);
@@ -94,7 +95,7 @@ function Filter({ clear }) {
       case 'Neutral':
         setMyList(
           backupList
-            .filter(({ biography: { alignment } }) => alignment === 'neutral'),
+            .filter(({ biography: { alignment } }) => alignment === 'neutral' || alignment === '-'),
         );
         break;
       case 'Bad':
@@ -110,39 +111,44 @@ function Filter({ clear }) {
   };
 
   return (
-    <section>
-      <p>Order by:</p>
-      <button
-        type="button"
-        name={asc ? 'A-Z' : 'Z-A'}
-        onClick={handleSortBy}
-      >
-        {asc ? 'A-Z' : 'Z-A'}
-      </button>
-      <button
-        type="button"
-        name={powerAsc ? 'powerAsc' : 'powerDesc'}
-        onClick={handleSortBy}
-      >
-        {!powerAsc ? 'Powerfull' : 'Power Asc'}
-      </button>
-      <SelectFilter
-        list={sortAspectsOptions}
-        onChange={handleChange}
-      />
-      <SelectFilter
-        list={sortAlignmentsOptions}
-        onChange={handleChange}
-      />
-      <div>
-        <button
+    <S.FilterSection>
+      <S.H3>Order by:</S.H3>
+      <S.ButtonFilterContainer>
+        <S.ButtonFilter
+          type="button"
+          name={asc ? 'A-Z' : 'Z-A'}
+          onClick={handleSortBy}
+        >
+          {asc ? 'A-Z' : 'Z-A'}
+        </S.ButtonFilter>
+        <S.ButtonFilter
+          type="button"
+          name={powerAsc ? 'powerAsc' : 'powerDesc'}
+          onClick={handleSortBy}
+        >
+          {!powerAsc ? 'Powerfull' : 'Power Asc'}
+        </S.ButtonFilter>
+      </S.ButtonFilterContainer>
+      <S.SelectFilterContainer>
+        <SelectFilter
+          list={sortAspectsOptions}
+          onChange={handleChange}
+        />
+        <SelectFilter
+          list={sortAlignmentsOptions}
+          onChange={handleChange}
+        />
+      </S.SelectFilterContainer>
+      <S.ClearFiltersButtonContainer>
+        <S.ButtonClearFilter
           type="button"
           onClick={() => clear()}
         >
           Clear Filters
-        </button>
-      </div>
-    </section>
+        </S.ButtonClearFilter>
+      </S.ClearFiltersButtonContainer>
+      <S.Hr/>
+    </S.FilterSection>
   );
 }
 

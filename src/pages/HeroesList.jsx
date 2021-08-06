@@ -5,6 +5,7 @@ import Filter from '../components/Filter';
 import Loading from '../components/Loading';
 import myContext from '../context/AppContext';
 import { getMyListOfHeroes, deleteHeroOfList } from '../services/api';
+import * as S from '../CSS/S.HeroesList';
 
 function HeroesList() {
   const [loading, setLoading] = useState(false);
@@ -28,12 +29,11 @@ function HeroesList() {
   if (loading) return <Loading />;
 
   return (
-    <main>
+    <S.Main>
       <Header />
-      <p>Heroes List</p>
       { !showSearch && <Filter clear={getMyList} /> }
       <ListCharacters type="favorite" />
-    </main>
+    </S.Main>
   );
 }
 

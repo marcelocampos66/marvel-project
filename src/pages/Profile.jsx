@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import Header from '../components/Header';
 import { getUser, updateUser } from '../services/api';
 import * as S from '../CSS/S.Profile';
 import noUserImg from '../images/no-user-image.jpg';
@@ -27,9 +28,11 @@ function Profile() {
 
   const updateMyProfile = async () => {
     const token = JSON.parse(localStorage.getItem('shlToken'));
-    const newInfos = await updateUser(formData, token);
+    const update = formData;
+    const newInfos = await updateUser(update, token);
     setUser(newInfos);
     setFormData(formInitialState);
+    setEditUser(false);
   };
 
   const validateForm = () => {
@@ -54,13 +57,6 @@ function Profile() {
       {renderInput('text', 'email', 'Email')}
       {renderInput('password', 'password', 'Password')}
       {renderInput('text', 'image', 'Image link')}
-      <button
-        type="button"
-        onClick={() => { updateMyProfile() }}
-        disabled={disableButton}
-      >
-        Submit Changes
-      </button>
     </S.Form>
   );
 
@@ -71,26 +67,35 @@ function Profile() {
           alt="user"
         />
         <S.UserInfoDiv>
-          <h2>{name}</h2>
-          <h3>{age}</h3>
-          <h4>{email}</h4 >
+          <S.H2>{name}</S.H2>
+          <S.H3>{age}</S.H3>
+          <S.H4>{email}</S.H4>
         </S.UserInfoDiv>
       </S.UserSection>
   );
 
   return (
     <S.Main>
-      <h1>My Profile</h1>
+      <Header />
+      <S.H1>My Profile</S.H1>
       {
         editUser ? formEditUser : currentDataUser
       }
       <S.EditButtonContainer>
         <S.EditButton
           type="button"
+          type={editUser}
           onClick={ () => editProfile() }
         >
-          Edit information
+          { editUser ? 'Cancel' : 'Edit' }
         </S.EditButton>
+        {editUser && <S.SubmitButton
+          type="button"
+          onClick={() => { updateMyProfile() }}
+          disabled={disableButton}
+        >
+          Submit
+        </S.SubmitButton>}
       </S.EditButtonContainer>
     </S.Main>
   );

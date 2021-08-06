@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 export const Main = styled.main`
-
-`;
-
-export const Section = styled.section`
-  margin-top: 50px;
-  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
 `;

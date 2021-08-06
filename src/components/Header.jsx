@@ -7,11 +7,15 @@ import SHLlogo from '../images/superheroesshl.png';
 import menuIcon from '../images/menu.png';
 import lupa from '../images/lupa-white.png';
 import * as S from '../CSS/S.Header';
+import { getAPageOfHeroes } from '../services/api';
 
 function Header() {
   const {
     showSearch, setShowSearch,
     showMenu, setShowMenu,
+    setShowPageNavigation,
+    setLoading, setHeroes,
+    page,
   } = useContext(AppContext);
 
   const handleShowMenuAndSearch = (key) => {
@@ -25,9 +29,15 @@ function Header() {
     }
   };
 
-  const handleGoHomePage = () => {
+  const handleGoHomePage = async () => {
+    setLoading(true);
     setShowSearch(false);
     setShowMenu(false);
+    const token = JSON.parse(localStorage.getItem('shlToken'));
+    const pageOfHeroes = await getAPageOfHeroes(page, token);
+    setHeroes(pageOfHeroes);
+    setShowPageNavigation(true);
+    setLoading(false);
   };
 
   return (
