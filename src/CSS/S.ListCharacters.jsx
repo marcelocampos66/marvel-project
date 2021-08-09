@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { zoomIn } from 'react-animations';
+
+const effect = keyframes`${zoomIn}`;
 
 export const Section = styled.main`
   display: flex;
@@ -45,6 +48,8 @@ export const DivCard = styled.div`
   max-width: 100%;
   width: 100%;
   height: 22vh;
+
+  animation: 0.5s ${effect};
 
   @media(min-width: 601px) {
     width: 100%;

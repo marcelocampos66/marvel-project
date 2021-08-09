@@ -1,4 +1,10 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { fadeIn, slideInDown, zoomInDown, pulse } from 'react-animations';
+
+const zoomInDownEffect = keyframes`${zoomInDown}`;
+const slideInDownEffect = keyframes`${slideInDown}`;
+const fadeInEffect = keyframes`${fadeIn}`;
+const pulseEffect = keyframes`${pulse}`;
 
 export const Main = styled.main`
   display: flex;
@@ -12,6 +18,8 @@ export const HeroSec = styled.section`
   flex-direction: column;
   align-items: center;
   padding: 3% 5%;
+
+  animation: 1s ${fadeInEffect};
 `;
 
 export const H1Tittle = styled.h1`
@@ -48,6 +56,8 @@ export const MainInfoSection = styled.section`
   justify-content: flex-start;
   width: 100%;
   margin: 0;
+
+  animation: 1s ${zoomInDownEffect};
 `;
 
 export const InfoP = styled.p`
@@ -60,10 +70,15 @@ export const BiographySection = styled.section`
   justify-content: flex-start;
   width: 100%;
   margin: 0;
+
+  animation: 1s ${zoomInDownEffect};
 `;
 
 export const InfosContainer = styled.div`
   margin: 3% 0;
+
+  // animation: 1s ${slideInDownEffect};
+  animation: 1s ${fadeInEffect};
 `;
 
 export const StatusSection = styled.section`
@@ -71,7 +86,8 @@ export const StatusSection = styled.section`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  // visibility: hidden;
+  
+  animation: 1s ${zoomInDownEffect};
 `;
 
 export const PowerStatusDiv = styled.div`
@@ -81,6 +97,8 @@ export const PowerStatusDiv = styled.div`
   justify-content: space-between;
   width: 90%;
   padding: 3% 5%;
+
+  animation: 1s ${fadeInEffect};
 `;
 
 export const StatusDiv = styled.div`
@@ -145,4 +163,8 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   font-weight: bold;
+
+  &:active {
+    animation: 0.5s ${pulseEffect};
+  }
 `;

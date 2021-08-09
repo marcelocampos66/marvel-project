@@ -4,7 +4,7 @@ import AppContext from '../context/AppContext';
 import * as S from '../CSS/S.Menu';
 
 function Menu() {
-  const { setShowMenu, redirect, setRedirect, setPage } = useContext(AppContext);
+  const { setShowMenu, redirect, setRedirect, setPage, setShowPageNavigation } = useContext(AppContext);
 
   const logout = () => {
     localStorage.removeItem('shlToken')
@@ -13,6 +13,7 @@ function Menu() {
 
   const goHome = () => {
     setPage(1);
+    setShowPageNavigation(true);
     setShowMenu(false);
   };
   

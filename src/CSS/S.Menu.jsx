@@ -1,5 +1,8 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { slideInLeft } from 'react-animations';
 import { Link } from 'react-router-dom';
+
+const slide = keyframes`${slideInLeft}`;
 
 export const Main = styled.main`
   background-color: black;
@@ -11,6 +14,8 @@ export const Main = styled.main`
   margin-top: 50px;
   padding: 1em;
   height: 100vh;
+
+  animation: 0.5s ${slide};
 `;
 
 export const LINK = styled(Link)`
