@@ -1,4 +1,10 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { fadeIn, slideInDown, zoomInDown, pulse } from 'react-animations';
+
+const zoomInDownEffect = keyframes`${zoomInDown}`;
+const slideInDownEffect = keyframes`${slideInDown}`;
+const fadeInEffect = keyframes`${fadeIn}`;
+const pulseEffect = keyframes`${pulse}`;
 
 export const Main = styled.main`
   display: flex;
@@ -26,11 +32,7 @@ export const HeroSec = styled.section`
   align-items: center;
   padding: 3% 5%;
 
-  @media(min-width: 1024px) {
-    width: 40vw;
-    align-self: flex-start;
-    padding: 0;
-  }
+  animation: 1s ${fadeInEffect};
 `;
 
 export const H1Tittle = styled.h1`
@@ -84,9 +86,7 @@ export const MainInfoSection = styled.section`
   width: 100%;
   margin: 0;
 
-  @media(min-width: 1024px) {
-    width: 40vw;
-  }
+  animation: 1s ${zoomInDownEffect};
 `;
 
 export const InfoP = styled.p`
@@ -104,19 +104,14 @@ export const BiographySection = styled.section`
   width: 100%;
   margin: 0;
 
-  @media(min-width: 1024px) {
-    width: 40vw;
-  }
+  animation: 1s ${zoomInDownEffect};
 `;
 
 export const InfosContainer = styled.div`
   margin: 3% 0;
-  display: flex;
-  flex-direction: column;
 
-  @media(min-width: 1024px) {
-    margin: 0;
-  }
+  // animation: 1s ${slideInDownEffect};
+  animation: 1s ${fadeInEffect};
 `;
 
 export const StatusSection = styled.section`
@@ -124,11 +119,8 @@ display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
-
-  @media(min-width: 1024px) {
-    width: 40vw;
-  }
-
+  
+  animation: 1s ${zoomInDownEffect};
 `;
 
 export const PowerStatusDiv = styled.div`
@@ -138,16 +130,8 @@ export const PowerStatusDiv = styled.div`
   justify-content: space-between;
   width: 90%;
   padding: 3% 5%;
-  
-  @media(min-width: 601px) {
-    background-color: green;
-  }
 
-  @media(min-width: 1024px) {
-    background-color: red;
-    width: 40vw;
-    padding: 0;
-  }
+  animation: 1s ${fadeInEffect};
 `;
 
 export const StatusDiv = styled.div`
@@ -247,4 +231,8 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   font-weight: bold;
+
+  &:active {
+    animation: 0.5s ${pulseEffect};
+  }
 `;

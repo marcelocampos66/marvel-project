@@ -1,8 +1,11 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { pulse } from 'react-animations';
 import back from '../images/back.png';
 import next from '../images/next.png';
 import backBlack from '../images/backBlack.png';
 import nextBlack from '../images/nextBlack.png';
+
+const pulseEffect = keyframes`${pulse}`;
 
 export const Section = styled.section`
   display: flex;
@@ -26,6 +29,10 @@ export const ImgBack = styled.button`
 
   &:hover {
     background-image: url(${(props) => (props.disabled ? back : backBlack)});
+    animation: 1s ${pulseEffect};
+  }
+  &:active {
+    animation: 1s ${pulseEffect};
   }
 `;
 
@@ -46,5 +53,9 @@ export const ImgNext = styled.button`
 
   &:hover {
     background-image: url(${(props) => (props.disabled ? next : nextBlack)});
+    animation: 0.5s ${pulseEffect};
+  }
+  &:active {
+    animation: 0.5s ${pulseEffect};
   }
 `;
