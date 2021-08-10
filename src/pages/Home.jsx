@@ -6,6 +6,7 @@ import { getAPageOfHeroes, getMyListOfHeroes } from '../services/api';
 import PageNavegation from '../components/PageNavegation';
 import Loading from '../components/Loading';
 import { Redirect } from 'react-router-dom';
+import * as S from '../CSS/S.Home';
 
 function Home() {
   const { setHeroes, setMyList, page, redirect, setRedirect, showPageNavigation, loading, setLoading } = useContext(AppContext);
@@ -23,6 +24,7 @@ function Home() {
     const myList = await getMyListOfHeroes(token);
     setHeroes(pageOfHeroes);
     setMyList(myList);
+    // window.scrollTo(0, 0);
     setLoading(false);
   };
 
@@ -33,13 +35,13 @@ function Home() {
   if (redirect) return <Redirect to='/' />;
 
   return (
-    <main>
+    <S.Main>
       <Header />
       {
         loading ? <Loading /> : <ListCharacters type="All" />
       }
       {showPageNavigation && <PageNavegation />}
-    </main>
+    </S.Main>
   );
 }
 

@@ -169,7 +169,7 @@ function Details({ match: { params: { id } } }) {
           />
         </S.Dropdown>
         { mainInformationDrop && (
-          <S.InfosContainer>
+          <S.InfosContainer test={mainInformationDrop}>
             <S.InfoP>{`Race: ${race === 'null' ? 'unknown' : race}`}</S.InfoP>
             <S.InfoP>{`Alignment: ${alignment || 'unknown'}`}</S.InfoP>
             <S.InfoP>{`Gender: ${gender || 'unknown'}`}</S.InfoP>

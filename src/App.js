@@ -1,4 +1,6 @@
 import React from 'react';
+import Provider from './context/Provider';
+import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Details from './pages/Details';
@@ -12,17 +14,21 @@ import Loading from './components/Loading';
 
 function App() {
   return (
-    <Switch>
-      <Route exact path="/" component={Login} />
-      <Route path="/register" component={Register} />
-      <Route path="/home" component={Home} />
-      <Route path="/details/:id" component={Details} />
-      <Route path="/heroes-list" component={HeroesList} />
-      <Route path="/profile" component={Profile} />
-      <Route path="/add-hero" component={AddHero} />
-      <Route path="/loading" component={Loading} />
-      <Route component={NotFound} />
-    </Switch>
+    <Provider>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/home" component={Home} />
+          <Route path="/details/:id" component={Details} />
+          <Route path="/heroes-list" component={HeroesList} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/add-hero" component={AddHero} />
+          <Route path="/loading" component={Loading} />
+          <Route component={NotFound} />
+        </Switch>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

@@ -1,45 +1,24 @@
-// import React from 'react';
-// import { render } from '@testing-library/react';
-// import Login from '../pages/Login';
+import React from 'react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
+import App from '../App';
+import renderWithRouter from './renderWithRouter';
 
-// test('renders learn react link', () => {
-//   const { getByText } = render(<Login />);
-//   const linkElement = getByText(/learn react/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
+describe('Testing if all links in', () => {
+    describe('login page:', () => {
+        // beforeEach(() => {
+        // });
+        // afterEach(() => cleanup);
+        it('Redirect to Register Page', () => {
+            const { getByText, getByRole } = renderWithRouter(<App />);
 
-// describe('Testing route:', () => {
-//   describe('Login page', () => {
-//     it('tentando aprender', () => {
-//       act(() => {
-//         render(<Login />, null);
-//       })
+            const linkToRegister = getByText(/Not registered\? Click here!/i);
+            expect(linkToRegister).toBeInTheDocument();
 
-//       const linkToRegisterByText = getByText(/Not registered? Click here!/);
-//       console.log(linkToRegisterByText);
-//       expect(linkToRegisterByText).exists();
-//     });
+            fireEvent.click(linkToRegister);
 
-//     it('rediret to Register when you click in register link', () => {
-//       const { getByRole, getByText } = render(<Login />);
-
-//       const linkToRegister = getByRole('link',);
-//       const linkToRegisterByText = getByText(/Not registered? Click here!/);
-
-//       console.log(linkToRegister);
-//       console.log(linkToRegisterByText);
-
-//       fireEvent.click(linkToRegisterByText);
-//       const { pathname } = history.location;
-//       expect(pathname).toBe('/register');
-//     });
-    // it('rediret to home page after login', () => {
-    //   const { getAllByRole, getByText, history } = renderWithRouter(<App />);
-    //   const email = 'pessoa.usuaria@gmail.com';
-    //   const password = '';
-
-    //   const inputs = getAllByRole('input');
-    //   console.log(inputs); 
-    // })
-//   });
-// });
+            const buttonRegister = getByRole('button');
+            expect(buttonRegister).toBeInTheDocument();
+        });
+    });
+});
