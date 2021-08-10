@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Header from '../components/Header';
+import Loading from '../components/Loading';
 import { getUser, updateUser } from '../services/api';
 import * as S from '../CSS/S.Profile';
 import noUserImg from '../images/no-user-image.jpg';
@@ -9,16 +10,18 @@ import renderInput from '../helpers/renderInput';
 import updateValidator from '../helpers/updateValidator';
 
 function Profile() {
-  const { formData, setFormData } = useContext(myContext);
+  const { formData, setFormData, loading, setLoading } = useContext(myContext);
   const [user, setUser] = useState(formInitialState);
   const [editUser, setEditUser] = useState(false);
   const [disableButton, setDisableButton] = useState(true);
 
 
   const getUserInfo = async () => {
+    setLoading(true);
     const token = JSON.parse(localStorage.getItem('shlToken'));
     const infos = await getUser(token);
     setUser(infos);
+    setLoading(false);
   };
 
   const editProfile = () => {
@@ -27,12 +30,14 @@ function Profile() {
   };
 
   const updateMyProfile = async () => {
+    setLoading(true);
     const token = JSON.parse(localStorage.getItem('shlToken'));
     const update = formData;
     const newInfos = await updateUser(update, token);
     setUser(newInfos);
     setFormData(formInitialState);
     setEditUser(false);
+    setLoading(false);
   };
 
   const validateForm = () => {
@@ -47,6 +52,8 @@ function Profile() {
   useEffect(() => {
     validateForm();
   }, [formData]);
+
+  if (loading) return <Loading />
 
   const { name, age, email } = user;
 

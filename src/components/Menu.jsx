@@ -4,7 +4,7 @@ import AppContext from '../context/AppContext';
 import * as S from '../CSS/S.Menu';
 
 function Menu() {
-  const { setShowMenu, redirect, setRedirect, setPage, setShowPageNavigation } = useContext(AppContext);
+  const { showMenu, setShowMenu, redirect, setRedirect, setPage, setShowPageNavigation } = useContext(AppContext);
 
   const logout = () => {
     localStorage.removeItem('shlToken')
@@ -19,7 +19,7 @@ function Menu() {
   
   if (redirect) return <Redirect path="/" />;
   return (
-    <S.Main>
+    <S.Main menu={showMenu}>
       <S.LINK to="/home" onClick={() => goHome()}>Home</S.LINK>
       <S.LINK to="/heroes-list" onClick={() => setShowMenu(false)}>My List</S.LINK>
       <S.LINK to="/profile" onClick={() => setShowMenu(false)}>Profile</S.LINK>

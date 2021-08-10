@@ -1,8 +1,9 @@
 import styled, { keyframes } from 'styled-components';
-import { slideInLeft } from 'react-animations';
+import { slideInLeft, slideOutLeft } from 'react-animations';
 import { Link } from 'react-router-dom';
 
-const slide = keyframes`${slideInLeft}`;
+const slideIn = keyframes`${slideInLeft}`;
+const slideOut = keyframes`${slideOutLeft}`;
 
 export const Main = styled.main`
   background-color: black;
@@ -15,7 +16,8 @@ export const Main = styled.main`
   padding: 1em;
   height: 100vh;
 
-  animation: 0.5s ${slide};
+  animation: 0.5s ${slideIn};
+  // animation: ${(props) => props.menu ? '0.5s ${slideIn}' : '0.5s ${slideOut}'};
 `;
 
 export const LINK = styled(Link)`
