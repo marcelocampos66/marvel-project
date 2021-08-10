@@ -22,6 +22,7 @@ function Details({ match: { params: { id } } }) {
   const [loading, setLoading] = useState(true);
   const [redirect, setRedirect] = useState(false);
   const [favorite, setFavorite] = useState(false);
+  const [windowSize, setWindowSize] = useState(window.screen.availWidth);
   const { myList, setMyList } = useContext(myContext);
 
   const getHero = async () => {
@@ -36,6 +37,16 @@ function Details({ match: { params: { id } } }) {
     setLoading(false);
   };
 
+  const setInitialState = (windowSize) => {
+    if (windowSize >= 1024) {
+      setControlDrop({
+        powerStatusDrop: true,
+        mainInformationDrop: true,
+        biographyDrop: true,
+      });
+    }
+  };
+
   const verifyFavorite = () => {
     const find = myList.find((hero) => hero._id === id)
     if (!find) {
@@ -47,6 +58,7 @@ function Details({ match: { params: { id } } }) {
 
   useEffect(() => {
     getHero();
+    setInitialState(windowSize);
   }, []);
 
   useEffect(async () => {
@@ -98,6 +110,7 @@ function Details({ match: { params: { id } } }) {
   const { powerStatusDrop, mainInformationDrop, biographyDrop } = controlDrop;
 
   const handleDrop = (key) => {
+    if (windowSize >= 1024) return;
     if (key === 'powerStatusDrop') {
       setControlDrop({ ...controlDrop, powerStatusDrop: !powerStatusDrop });
     }
@@ -134,10 +147,10 @@ function Details({ match: { params: { id } } }) {
           onClick={() => handleDrop('powerStatusDrop')}
         >
           <S.H4tittle>POWER STATUS</S.H4tittle>
-          <S.Arrow
+          {(windowSize < 1024) && (<S.Arrow
             src={seta}
             alt="seta dropdown"
-          />
+          />)}
         </S.Dropdown>
         { powerStatusDrop && (
           <S.PowerStatusDiv visible={powerStatusDrop}>
@@ -163,10 +176,10 @@ function Details({ match: { params: { id } } }) {
           onClick={() => handleDrop('mainInformationDrop')}
         >
           <S.H4tittle>MAIN INFORMATION</S.H4tittle>
-          <S.Arrow
+          {(windowSize < 1024) && (<S.Arrow
             src={seta}
             alt="seta dropdown"
-          />
+          />)}
         </S.Dropdown>
         { mainInformationDrop && (
           <S.InfosContainer test={mainInformationDrop}>
@@ -185,10 +198,10 @@ function Details({ match: { params: { id } } }) {
           onClick={() => handleDrop('biographyDrop')}
         >
           <S.H4tittle>BIOGRAPHY</S.H4tittle>
-          <S.Arrow
+          {(windowSize < 1024) && (<S.Arrow
             src={seta}
             alt="seta dropdown"
-          />
+          />)}
         </S.Dropdown>
         { biographyDrop && (
           <S.InfosContainer>
@@ -209,11 +222,11 @@ function Details({ match: { params: { id } } }) {
           </S.InfosContainer>
         )}
       </S.BiographySection>
-      <S.Button type="button" onClick={ () => updateList() }>   
-        {
-          favorite ? 'Remove' : 'Add'
-        }
-      </S.Button>
+      <S.ButtonDivContainer>
+        <S.Button type="button" onClick={ () => updateList() }>   
+          { favorite ? 'Remove' : 'Add' }
+        </S.Button>
+      </S.ButtonDivContainer>
     </S.Main>
   );
 }

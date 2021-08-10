@@ -2,10 +2,13 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import * as S from '../CSS/S.ListCharacters';
 import AppContext from '../context/AppContext';
+import NoHeroesFound from '../components/NoHeroesFound';
 
 function ListCharacters({ type }) {
   const { heroes, myList } = useContext(AppContext);
   const list = (type === 'favorite') ? myList : heroes;
+
+  if (heroes.length === 0) return <NoHeroesFound />;
 
   return (
     <S.Section>

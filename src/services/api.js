@@ -10,7 +10,7 @@ export const getAPageOfHeroes = (page, token) => {
 };
 
 export const searchHeroesByName = (name) => {
-  const endpoint = `https://heroes-list-api.herokuapp.com/heroes/search/${name}`;
+  const endpoint = `https://heroes-list-api.herokuapp.com/heroes/search?name=${name}`;
   return fetch(endpoint)
     .then((response) => response.json()).then((data) => data);
 };

@@ -5,7 +5,7 @@ export const Main = styled.main`
   flex-direction: column;
   background-color: black;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   align-items: center;
   justify-content: center;
 `;

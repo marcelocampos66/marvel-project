@@ -15,7 +15,6 @@ function Profile() {
   const [editUser, setEditUser] = useState(false);
   const [disableButton, setDisableButton] = useState(true);
 
-
   const getUserInfo = async () => {
     setLoading(true);
     const token = JSON.parse(localStorage.getItem('shlToken'));

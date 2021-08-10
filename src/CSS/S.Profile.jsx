@@ -4,13 +4,12 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   align-items: center;
-  // justify-content: space-bet;
 `;
 
 export const H1 = styled.h1`
-  margin: 10vh 0 2vh 0;
+  margin: 10vh 0 0 0;
 `;
 
 export const H2 = styled.h2`
@@ -26,16 +25,17 @@ export const H4 = styled.h4`
 `;
 
 export const UserSection = styled.div`
-  height: 80vh;
+  height: 75vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
 `;
 
 export const UserImg = styled.img`
-  height: 30vh;
-  margin: 5%;
+  margin: 5% 0 3% 0;
+  height: 35vh;
 `;
 
 export const UserInfoDiv = styled.div`
@@ -43,11 +43,14 @@ export const UserInfoDiv = styled.div`
   flex-direction: column;
   width: 80%;
   align-items: center;
-  height: 10vh;
-  margin-top: 5vh;
 `;
 
 export const Form = styled.form`
+  margin-top: 10%;
+
+  @media(min-width: 1024px) {
+    margin-top: 2%;
+  }
 `;
 
 export const EditButtonContainer = styled.div`

@@ -8,7 +8,7 @@ export const Section = styled.main`
   display: flex;
   justify-content: center;
   margin-top: 10vh;
-  width: 100vw;
+  width: 100%;
 `;
 
 export const DivContent = styled.div`
@@ -26,13 +26,6 @@ export const Img = styled.img`
   height: 90%;
   width: 85px;
   margin: 0 2%
-
-// @media(min-width: 601px) {
-//   width: 85px;
-//   // width: auto;
-//   height: 90%;
-//   margin: 0 2%;
-// }
 `;
 
 export const P = styled.p`
@@ -57,6 +50,10 @@ export const DivCard = styled.div`
     max-width: 31%;
     justify-self: start;
     margin: 0 1%;
+  }
+
+  @media(min-width: 1024px) {
+    // margin: 0;
   }
 `;
 

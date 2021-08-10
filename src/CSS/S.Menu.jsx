@@ -8,7 +8,7 @@ const slideOut = keyframes`${slideOutLeft}`;
 export const Main = styled.main`
   background-color: black;
   opacity: 0.9;
-  width: 50vw;
+  width: 50%;
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -17,7 +17,10 @@ export const Main = styled.main`
   height: 100vh;
 
   animation: 0.5s ${slideIn};
-  // animation: ${(props) => props.menu ? '0.5s ${slideIn}' : '0.5s ${slideOut}'};
+
+  @media(min-width: 1024px) {
+    width: 20%;
+  }
 `;
 
 export const LINK = styled(Link)`

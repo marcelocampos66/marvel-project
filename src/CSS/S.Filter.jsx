@@ -5,7 +5,7 @@ export const FilterSection = styled.section`
   flex-direction: column;
   height: 25vh;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   margin-top: 10vh;
 `;
 
@@ -19,7 +19,7 @@ export const ButtonFilterContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 2vh;
-  width: 100vw;
+  width: 100%;
 `;
 
 export const ButtonFilter = styled.button`
@@ -41,7 +41,7 @@ export const SelectFilterContainer = styled.div`
   justify-content: space-evenly;
   // padding: 0 5%;
   margin-bottom: 2vh;
-  width: 100vw;
+  width: 100%;
 `;
 
 export const ClearFiltersButtonContainer = styled.div`

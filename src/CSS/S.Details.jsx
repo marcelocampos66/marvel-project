@@ -12,17 +12,14 @@ export const Main = styled.main`
   align-items: center;
   margin-top: 50px;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   
   @media(min-width: 1024px) {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: start;
-    justify-content: space-between;
-    width: 100vw;
-    margin: 0;
-    padding: 0;
-    // margin: 50px 0;
+    justify-content: space-evenly;
+    margin-top: 80px;
   }
 `;
 
@@ -33,13 +30,18 @@ export const HeroSec = styled.section`
   padding: 3% 5%;
 
   animation: 1s ${fadeInEffect};
+
+  @media(min-width: 1024px) {
+    width: 45%;
+    padding: 0;
+  }
 `;
 
 export const H1Tittle = styled.h1`
   margin: 0 0 3% 0;
 
   @media(min-width: 1024px) {
-    margin: 0;
+    font-size: 1.5em;
   }
 `;
 
@@ -66,8 +68,15 @@ export const OverallContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   width: 50%;
   height: 22vh;
+
+  @media(min-width: 1024px) {
+    height: 35vh;
+    align-items: center;
+    justify-content: space-around;
+  }
 `;
 
 export const OverallImg = styled.img`
@@ -75,7 +84,7 @@ export const OverallImg = styled.img`
   margin: 0 0 5% 0;
 
   @media(min-width: 1024px) {
-    margin: 0;
+    width: 60%;
   }
 `;
 
@@ -87,13 +96,19 @@ export const MainInfoSection = styled.section`
   margin: 0;
 
   animation: 1s ${zoomInDownEffect};
+
+  @media(min-width: 1024px) {
+    width: 45%;
+    height: auto;
+    min-height: 50vh;
+  }
 `;
 
 export const InfoP = styled.p`
   margin: 5px 15px;
 
   @media(min-width: 1024px) {
-    margin: 0;
+    margin: 4px 15px;
   }
 `;
 
@@ -105,22 +120,39 @@ export const BiographySection = styled.section`
   margin: 0;
 
   animation: 1s ${zoomInDownEffect};
+
+  @media(min-width: 1024px) {
+    width: 45%;
+    height: auto;
+    min-height: 50vh;
+  }
 `;
 
 export const InfosContainer = styled.div`
   margin: 3% 0;
 
-  // animation: 1s ${slideInDownEffect};
   animation: 1s ${fadeInEffect};
+
+  @media(min-width: 1024px) {
+    margin: 20px;
+    width: 100%;
+    height: 100%;
+    // padding: 
+  }
 `;
 
 export const StatusSection = styled.section`
-display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
   
   animation: 1s ${zoomInDownEffect};
+
+  @media(min-width: 1024px) {
+    width: 45%;
+    margin-bottom: 50px;
+  }
 `;
 
 export const PowerStatusDiv = styled.div`
@@ -130,8 +162,17 @@ export const PowerStatusDiv = styled.div`
   justify-content: space-between;
   width: 90%;
   padding: 3% 5%;
+  box-sizing: border-box;
 
   animation: 1s ${fadeInEffect};
+
+  @media(min-width: 1024px) {
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 0% 5%;
+    // align-items: start;
+    justify-content: space-between;
+  }
 `;
 
 export const StatusDiv = styled.div`
@@ -151,8 +192,8 @@ export const StatusDiv = styled.div`
   }
 
   @media(min-width: 1024px) {
-    width: 30vw;
-    max-width: 90px;
+    height: 20vh;
+    width: 30%;
     margin: 0;
     padding: 0;
   }
@@ -173,7 +214,7 @@ export const StatusImg = styled.img`
     width: 100%;
     max-width: 100px;
     height: auto;
-    margin: 0 2%;
+    margin: 0;
   }
 `;
 
@@ -190,6 +231,7 @@ export const H4status = styled.h4`
 export const H4tittle = styled.h3`
   color: white;
   align-self: center;
+  margin-left: 5%;
 `;
 
 export const Dropdown = styled.div`
@@ -201,12 +243,8 @@ export const Dropdown = styled.div`
   height: 50px;
   padding: 0 5%;
 
-  @media(min-width: 601px) {
-
-  }
-
   @media(min-width: 1024px) {
-    width: 40vw;
+    width: 100%;
     height: auto;
     padding: 0;
   }
@@ -216,23 +254,31 @@ export const Arrow = styled.img`
   height: 35px;
 `;
 
+export const ButtonDivContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+`;
+
 export const Button = styled.button`
   background-color: black;
   color: white;
   border-radius: 5px;
-  width: 200px;
+  width: 80%;
   height: 5vh;
-  padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  margin: 10px 40vw;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-weight: bold;
+  margin: 20px 0;
 
   &:active {
     animation: 0.5s ${pulseEffect};
+  }
+
+  @media(min-width: 1024px) {
+    width: 30%;
+    height: 6vh;
+    font-size: 1em;
   }
 `;

@@ -9,7 +9,7 @@ export const Section = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 15vh;
   background-color: black;
 
@@ -22,8 +22,13 @@ export const Div = styled.div`
   justify-content: center;
   height: 8vh;
   background-color: white;
-  width: 85vw;
+  width: 85%;
   border-radius: 15px;
+  padding-left: 2%;
+
+  @media(min-width: 1024px) {
+    justify-content: space-between;
+  }
 `;
 
 export const DivImg = styled.div`
@@ -31,12 +36,23 @@ export const DivImg = styled.div`
   border: 0px solid;
   border-radius: 0 5px 5px 0;
   height: 5vh;
-  width: 15vw;
+  width: 25%;
   padding: 2px 0;
   justify-content: center;
   align-items: center;
+
+  @media(min-width: 1024px) {
+    justify-self: end;
+    justify-content: flex-end;
+    align-items: center;
+    width: 15%;
+  }
 `;
 
 export const Img = styled.img`
   height: 7vh;
+
+  @media(min-width: 1024px) {
+    justify-self: end;
+  }
 `;
