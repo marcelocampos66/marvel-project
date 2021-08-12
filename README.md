@@ -1,8 +1,10 @@
 <h1 align="center">Super Heroes List - 🚧 Em desenvolvimento 🚧<h1>
 
-[![Generic badge](https://img.shields.io/badge/Status-In%20Progress-yellow?style=for-the-badge&logo=appveyor)](https://shields.io/) 
-[![Generic badge](https://img.shields.io/badge/Patern-Eslint_Airbnb-red?style=for-the-badge&logo=appveyor)](https://shields.io/) 
-[![Generic badge](https://img.shields.io/badge/Develop-Full%20Stack-blue?style=for-the-badge&logo=appveyor)](https://shields.io/)  
+[![Generic badge](https://img.shields.io/badge/Status-In%20Progress-yellow?style=for-the-badge&logo=appveyor)](https://shields.io/)
+[![Generic badge](https://img.shields.io/badge/Patern-Eslint_Airbnb-red?style=for-the-badge&logo=appveyor)](https://shields.io/)
+[![Generic badge](https://img.shields.io/badge/Develop-Full%20Stack-orange?style=for-the-badge&logo=appveyor)](https://shields.io/)
+[![Generic badge](https://img.shields.io/badge/Develop-React.js-blue?style=for-the-badge&logo=appveyor)](https://shields.io/)
+[![Generic badge](https://img.shields.io/badge/Develop-styled%20components-red?style=for-the-badge&logo=appveyor)](https://shields.io/)
  
 <h3>A aplicação consiste em um CRUD onde a pessoa usuária poderá criar sua própria lista de heróis favoritos. Será possível utilizar os personagens constantes no banco de dados ou ainda acrescentar os seus próprios.</h3>
   
