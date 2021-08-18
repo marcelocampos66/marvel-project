@@ -38,9 +38,7 @@ function Login() {
     if (!localStorage.getItem('heroList')) {
       localStorage.setItem('heroList', JSON.stringify([]));
     }
-    console.log(loginInfo);
     const result = await loginUser(loginInfo);
-    console.log(result);
     if (result.err) return setErrorMessage(result.err);
     localStorage.setItem('shlToken', JSON.stringify(result.token));
 

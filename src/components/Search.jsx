@@ -18,7 +18,6 @@ function Search() {
     const lowerCaseInput = inputValue.toLowerCase();
     const result = await searchHeroesByName(lowerCaseInput);
     if (result.type === 'string_empty') {
-      console.log('entrei aqui');
       setHeroes([]);
       setLoading(false);
       return;

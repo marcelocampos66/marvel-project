@@ -15,7 +15,6 @@ function Register() {
 
   const registerUser = async () => {
     const token = await registerNewUser(formData);
-    console.log(token);
     if (token.err) {
       setErrorMessage(token.err);
       setFormData({ ...formData, error: token.err })
