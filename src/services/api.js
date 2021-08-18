@@ -71,15 +71,15 @@ export const getQuantityOfHeroes = () => {
     .then((response) => response.json()).then((data) => data);
 };
 
-export const registerNewUser = (body) => {
+export const registerNewUser = (newUSer) => {
   const endpoint = 'https://heroes-list-api.herokuapp.com/users';
-  delete body.terms && body.error && body.image;
+  delete newUSer.terms && delete newUSer.error && delete newUSer.image;
   return fetch(endpoint, {
     method: 'POST',
     headers: { 
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ ...body }),
+    body: JSON.stringify({ ...newUSer }),
   })
     .then((response) => response.json())
     .then((data) => data)

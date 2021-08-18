@@ -15,9 +15,15 @@ function Register() {
 
   const registerUser = async () => {
     const token = await registerNewUser(formData);
+    console.log(token);
     if (token.err) {
       setErrorMessage(token.err);
       setFormData({ ...formData, error: token.err })
+      return;
+    }
+    if (token.error) {
+      setErrorMessage(token.error);
+      setFormData({ ...formData, error: token.error })
       return;
     }
     localStorage.setItem('shltoken', JSON.stringify(token));
