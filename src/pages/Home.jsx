@@ -9,7 +9,7 @@ import { Redirect } from 'react-router-dom';
 import * as S from '../CSS/S.Home';
 
 function Home() {
-  const { setHeroes, setMyList, page, redirect, setRedirect, showPageNavigation, loading, setLoading } = useContext(AppContext);
+  const { setLogin, setHeroes, setMyList, page, redirect, setRedirect, showPageNavigation, loading, setLoading } = useContext(AppContext);
 
   const fetchPage = async (indexNumber) => {
     setLoading(true);
@@ -24,12 +24,13 @@ function Home() {
     const myList = await getMyListOfHeroes(token);
     setHeroes(pageOfHeroes);
     setMyList(myList);
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     setLoading(false);
   };
 
   useEffect(() => {
     fetchPage(page);
+    setLogin(false);
   }, [page]);
 
   if (redirect) return <Redirect to='/' />;

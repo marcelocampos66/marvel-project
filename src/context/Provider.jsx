@@ -26,6 +26,8 @@ function Provider({ children }) {
   const [redirect, setRedirect] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showPageNavigation, setShowPageNavigation] = useState(true);
+  const [login, setLogin] = useState(false);
+  const [formsLogin, setFormsLogin] = useState(false);
 
   const contextValue = {
     change,
@@ -54,6 +56,10 @@ function Provider({ children }) {
     setLoading,
     showPageNavigation,
     setShowPageNavigation,
+    login,
+    setLogin,
+    formsLogin,
+    setFormsLogin,
   };
 
   return (
