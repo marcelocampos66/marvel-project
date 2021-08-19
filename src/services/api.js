@@ -100,6 +100,20 @@ export const loginUser = (user) => {
     .catch((err) => err);
 };
 
+export const recoveryPassWord = (email) => {
+  const endpoint = 'https://heroes-list-api.herokuapp.com/users/recover/password';
+  return fetch(endpoint, {
+    method: 'POST',
+    headers: { 
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ ...email }),
+  })
+    .then((response) => response.json())
+    .then((data) => data)
+    .catch((err) => err);
+};
+
 export const updateUser = (user, token) => {
   const endpoint = 'https://heroes-list-api.herokuapp.com/users/update-infos';
   delete user.terms && delete user.error && delete user.role && delete user.list;
